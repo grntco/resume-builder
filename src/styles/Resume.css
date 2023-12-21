@@ -1,0 +1,5 @@
+.resume {
+    height: calc(50px * 11);
+    width: calc(50px * 8.5);
+    border: 1px solid black;
+}

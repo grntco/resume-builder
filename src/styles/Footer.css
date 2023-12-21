@@ -1,0 +1,15 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  
+  .footer__link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .footer .github-icon {
+    height: 1.5rem;
+  }

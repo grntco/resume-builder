@@ -1,6 +1,17 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center; 
-} */
+#root {
+  width: 100%;
+  /* margin: 0 auto; */
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid orangered;
+  height: 100%;
+}
+
+.main-content {
+  border: 1px solid blue;
+  display: flex;
+  flex-grow: 1;
+}
