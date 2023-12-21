@@ -6,7 +6,6 @@
 .app {
   display: flex;
   flex-direction: column;
-  border: 1px solid orangered;
   height: 100%;
 }
 
