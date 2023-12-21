@@ -1,3 +1,5 @@
+import '../styles/Card.css'
+
 export function Card({ title, children }) {
     return (
         <div className="card">

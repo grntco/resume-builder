@@ -4,13 +4,23 @@
 }
 
 .app {
+  background-color: var(--primary-bg-color);
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
 .main-content {
-  border: 1px solid blue;
   display: flex;
   flex-grow: 1;
+  background-color: var(--secondary-bg-color);
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  max-height: calc(100vh - 5rem);
+  gap: 16px;
+  overflow-y: auto;
 }

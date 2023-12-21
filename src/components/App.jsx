@@ -11,11 +11,13 @@ export function App() {
     <div className="app">
       <Header />
       <section className="main-content">
-        <div className="controls-container">
-          <div className="toolbar">
-            <button>Toggle Preview</button>
-            <button>Download as PDF</button>
-          </div>
+        <div className="cards-container">
+          <Card>
+            <div className="toolbar">
+              <button>Toggle Preview</button>
+              <button>Download as PDF</button>
+            </div>
+          </Card>
           <Card title="Personal Details">
             <Form>
               <TextInput label="Full Name"></TextInput>

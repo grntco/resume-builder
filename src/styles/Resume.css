@@ -1,5 +1,8 @@
 .resume {
-    height: calc(50px * 11);
-    width: calc(50px * 8.5);
-    border: 1px solid black;
+    height: calc(80px * 11);
+    width: calc(80px * 8.5);
+    background-color: var(--primary-bg-color);
+    -webkit-box-shadow: 2px 2px 12px 4px rgba(240,240,240,1);
+    -moz-box-shadow: 2px 2px 12px 4px rgba(240,240,240,1);
+    box-shadow: 2px 2px 12px 4px rgba(240,240,240,1);;
 }
