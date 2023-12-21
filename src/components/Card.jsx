@@ -1,10 +1,8 @@
-import { Form } from "./Form"
-
-export function Card({ title }) {
+export function Card({ title, children }) {
     return (
         <div className="card">
-            <h2>{title}</h2>
-            <Form />
+            <h2 className="card-title">{title}</h2>
+            {children}
         </div>
     )
 }
