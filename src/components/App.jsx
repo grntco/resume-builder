@@ -3,13 +3,13 @@ import { Card } from './Card';
 import { Form } from './Form';
 import { TextInput } from './TextInput';
 import { Resume } from './Resume';
-import { Nav } from './Nav';
+import { Header } from './Header';
 import { Footer } from './Footer';
 
 export function App() {
   return (
     <div className="app">
-      <Nav />
+      <Header />
       <section className="main-content">
         <div className="controls-container">
           <div className="toolbar">
