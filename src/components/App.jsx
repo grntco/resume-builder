@@ -1,10 +1,11 @@
 import '../styles/App.css';
-import { Card } from './Card';
-import { Form } from './Form';
-import { TextInput } from './TextInput';
+import { Card } from './cards/Card';
+import { Form } from './cards/Form';
+import { TextInput } from './cards/TextInput';
 import { Resume } from './Resume';
 import { Header } from './Header';
 import { Footer } from './Footer';
+import { PersonalCard } from './cards/PersonalCard';
 
 export function App() {
   return (
@@ -18,14 +19,7 @@ export function App() {
               <button>Download as PDF</button>
             </div>
           </Card>
-          <Card title="Personal Details">
-            <Form>
-              <TextInput label="Full Name"></TextInput>
-              <TextInput label="Email"></TextInput>
-              <TextInput label="Phone Number"></TextInput>
-              <TextInput label="Location"></TextInput>
-            </Form>
-          </Card>
+          <PersonalCard></PersonalCard>
           <Card title="Work Experience">
             <Form>
               <TextInput label="Company"></TextInput>
