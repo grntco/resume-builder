@@ -6,6 +6,7 @@ import { Resume } from './Resume';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { PersonalCard } from './cards/PersonalCard';
+import { WorkCard } from './cards/WorkCard';
 
 export function App() {
   return (
@@ -20,18 +21,9 @@ export function App() {
             </div>
           </Card>
           <PersonalCard></PersonalCard>
-          <Card title="Work Experience">
-            <Form>
-              <TextInput label="Company"></TextInput>
-              <TextInput label="Position"></TextInput>
-              <TextInput label="Location"></TextInput>
-              <TextInput label="Start Date"></TextInput>
-              <TextInput label="End Date"></TextInput>
-            </Form>
-            <button>Add Experience</button>
-          </Card>
-          <Card title="Education">
-            <Form>
+          <WorkCard></WorkCard>
+          <Card>
+            <Form title="Education">
               <TextInput label="University"></TextInput>
               <TextInput label="Degree"></TextInput>
               <TextInput label="Location"></TextInput>
@@ -40,8 +32,8 @@ export function App() {
             </Form>
             <button>Add Education</button>
           </Card>
-          <Card title="Skills & Languages">
-            <Form>
+          <Card>
+            <Form title="Skills & Languages">
               <TextInput label="Skill"></TextInput>
             </Form>
             <button>Add Skill</button>

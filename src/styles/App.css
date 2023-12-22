@@ -13,6 +13,7 @@
   background-color: var(--secondary-bg-color);
   /* align-items: center; */
   justify-content: center;
+
 }
 
 /* .main-container {
@@ -25,8 +26,8 @@
   display: flex;
   flex-direction: column;
   padding: 24px;
-  min-width: 440px;
   max-height: calc(100vh - 5rem);
+  min-width: 440px;
   gap: 16px;
   overflow-y: auto;
 }
