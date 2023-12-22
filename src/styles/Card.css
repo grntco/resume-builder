@@ -1,8 +1,13 @@
 .card {
-    padding: 12px 24px;
+    padding: 12px 24px 20px 24px;
     border-radius: 8px;
     background-color: var(--primary-bg-color);
     -webkit-box-shadow: 2px 2px 12px 4px rgba(240,240,240,1);
     -moz-box-shadow: 2px 2px 12px 4px rgba(240,240,240,1);
     box-shadow: 2px 2px 12px 4px rgba(240,240,240,1);
+}
+
+.card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
 }

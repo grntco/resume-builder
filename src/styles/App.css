@@ -15,16 +15,17 @@
   justify-content: center;
 }
 
-.main-container {
+/* .main-container {
   display: flex;
   height: 100%;
   width: clamp(1100px, 100%, 1500px);
-}
+} */
 
 .cards-container {
   display: flex;
   flex-direction: column;
   padding: 24px;
+  min-width: 440px;
   max-height: calc(100vh - 5rem);
   gap: 16px;
   overflow-y: auto;
