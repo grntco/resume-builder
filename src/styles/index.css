@@ -32,6 +32,10 @@ body {
   color: var(--primary-txt-color);
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 /* move this proly */
 .preview-container {
   flex-grow: 1;

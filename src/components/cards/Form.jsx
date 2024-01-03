@@ -3,7 +3,7 @@ import { FormHeader } from './FormHeader'
 import { TextInput } from './TextInput';
 import { useState } from 'react';
 
-export function Form({ title, fieldsetLabels }) {
+export function Form({ title, fieldsetLabels, fieldsetLimit }) {
     const [isCollapsed, setIsCollapsed] = useState(true)
     const [labelsList, setLabelsList] = useState([fieldsetLabels])
 
@@ -17,7 +17,7 @@ export function Form({ title, fieldsetLabels }) {
             { !isCollapsed && (
                 labelsList.map((labels, index) => {
                     return (
-                        <ul key={index}>
+                        <ul key={index} className="form__fieldset">
                             {labels.map((label, index) => {
                                 return <TextInput label={label} key={index}>{label}</TextInput>
                             })}
@@ -25,15 +25,20 @@ export function Form({ title, fieldsetLabels }) {
                     )
                 })
             )}
-            <button
-                onClick={handleAddFieldset}
-                disabled={labelsList.length >= 3}
-            >Add {title}</button>
+            {
+                (fieldsetLimit > 1) && (
+                    <button
+                        onClick={handleAddFieldset}
+                        disabled={labelsList.length >= fieldsetLimit}
+                    >Add {title}</button>
+                )
+            }
+            
             {
                 (labelsList.length > 1) && (
                     <button
                     onClick={handleDeleteFieldset}
-                >Delete {title}</button>
+                    >Delete {title}</button>
                 )
             }
         </form>
@@ -46,7 +51,7 @@ export function Form({ title, fieldsetLabels }) {
 
     function handleAddFieldset(e) {
         e.preventDefault();
-        if (labelsList.length < 3) {
+        if (labelsList.length < fieldsetLimit) {
             setLabelsList([...labelsList, fieldsetLabels])
         }
     }
