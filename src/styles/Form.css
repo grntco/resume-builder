@@ -61,6 +61,7 @@
     height: 1.8rem;
     border-radius: 4px;
     color: var(--secondary-txt-color);
+    transition: transform 0.025s ease-in;
 }
 
 .input:focus {
@@ -69,4 +70,5 @@
     -webkit-box-shadow: 2px 2px 12px 4px rgba(56,189,248,0.2);
     -moz-box-shadow: 2px 2px 12px 4px rgba(56,189,248,0.2);
     box-shadow: 2px 2px 12px 4px rgba(56,189,248,0.2);
+    transform: scale(1.025);
 }

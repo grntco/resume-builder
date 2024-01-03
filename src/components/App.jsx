@@ -38,6 +38,9 @@ export function App() {
             </Form>
             <button>Add Skill</button>
           </Card>
+          <Card>
+            <button>Display</button>
+          </Card>
         </div>
         <div className="preview-container">
           <Resume></Resume>
