@@ -26,7 +26,7 @@ export function Form({ title, fieldsetLabels, fieldsetLimit }) {
                 })
             )}
             {
-                (fieldsetLimit > 1) && (
+                (!isCollapsed && fieldsetLimit > 1) && (
                     <button
                         onClick={handleAddFieldset}
                         disabled={labelsList.length >= fieldsetLimit}
@@ -35,7 +35,7 @@ export function Form({ title, fieldsetLabels, fieldsetLimit }) {
             }
             
             {
-                (labelsList.length > 1) && (
+                (!isCollapsed && labelsList.length > 1) && (
                     <button
                     onClick={handleDeleteFieldset}
                     >Delete {title}</button>
