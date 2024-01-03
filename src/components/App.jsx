@@ -5,8 +5,6 @@ import { TextInput } from './cards/TextInput';
 import { Resume } from './Resume';
 import { Header } from './Header';
 import { Footer } from './Footer';
-import { PersonalCard } from './cards/PersonalCard';
-import { WorkCard } from './cards/WorkCard';
 
 export function App() {
   return (
@@ -20,23 +18,17 @@ export function App() {
               <button>Download as PDF</button>
             </div>
           </Card>
-          <PersonalCard></PersonalCard>
-          <WorkCard></WorkCard>
           <Card>
-            <Form title="Education">
-              <TextInput label="University"></TextInput>
-              <TextInput label="Degree"></TextInput>
-              <TextInput label="Location"></TextInput>
-              <TextInput label="Start Date"></TextInput>
-              <TextInput label="End Date"></TextInput>
-            </Form>
-            <button>Add Education</button>
+            <Form title="Personal Details" fieldsetLabels={["Full Name", "Email", "Phone Number", "Location"]} />
           </Card>
           <Card>
-            <Form title="Skills & Languages">
-              <TextInput label="Skill"></TextInput>
-            </Form>
-            <button>Add Skill</button>
+            <Form title="Work Experience" fieldsetLabels={["Company", "Position", "Location", "Start Date", "End Date"]} />
+          </Card>
+          <Card>
+            <Form title="Education" fieldsetLabels={["University", "Degree", "Location", "Start Date", "End Date"]} />
+          </Card>
+          <Card>
+            <Form title="Skills & Languages" fieldsetLabels={["Skill"]} />
           </Card>
           <Card>
             <button>Display</button>

@@ -1,14 +1,11 @@
 import '../../styles/Form.css'
 import { FormHeader } from './FormHeader'
+import { TextInput } from './TextInput';
 import { useState } from 'react';
 
-export function Form({ title, children }) {
-    const [isCollapsed, setIsCollapsed] = useState(true);
-
-    function handleToggle(e) {
-        e.preventDefault();
-        setIsCollapsed(!isCollapsed);
-    }
+export function Form({ title, fieldsetLabels }) {
+    const [isCollapsed, setIsCollapsed] = useState(true)
+    const [labelsList, setLabelsList] = useState([fieldsetLabels])
 
     return(
         <form className="form" autoComplete='off'>
@@ -17,11 +14,49 @@ export function Form({ title, children }) {
                 isCollapsed={isCollapsed}
                 onClick={handleToggle}
             ></FormHeader>
-            {!isCollapsed && (
-                <ul className='form__inputs-container'>
-                    {!isCollapsed && children}
-                </ul>
+            { !isCollapsed && (
+                labelsList.map((labels, index) => {
+                    return (
+                        <ul key={index}>
+                            {labels.map((label, index) => {
+                                return <TextInput label={label} key={index}>{label}</TextInput>
+                            })}
+                        </ul>
+                    )
+                })
             )}
+            <button
+                onClick={handleAddFieldset}
+                disabled={labelsList.length >= 3}
+            >Add {title}</button>
+            {
+                (labelsList.length > 1) && (
+                    <button
+                    onClick={handleDeleteFieldset}
+                >Delete {title}</button>
+                )
+            }
         </form>
     )
+
+    function handleToggle(e) {
+        e.preventDefault();
+        setIsCollapsed(!isCollapsed);
+    }
+
+    function handleAddFieldset(e) {
+        e.preventDefault();
+        if (labelsList.length < 3) {
+            setLabelsList([...labelsList, fieldsetLabels])
+        }
+    }
+
+    function handleDeleteFieldset(e) {
+        e.preventDefault();
+        if (labelsList.length > 1) {
+            const labelsListCopy = labelsList;
+            labelsListCopy.pop();
+            setLabelsList([...labelsListCopy]);
+        }
+    }
 }
