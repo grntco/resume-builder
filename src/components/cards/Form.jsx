@@ -3,43 +3,42 @@ import { FormHeader } from './FormHeader'
 import { TextInput } from './TextInput';
 import { useState } from 'react';
 
-export function Form({ title, fieldsetLabels, fieldsetLimit }) {
+export function Form({ data, fieldsetLimit = 1 }) {
     const [isCollapsed, setIsCollapsed] = useState(true)
-    const [labelsList, setLabelsList] = useState([fieldsetLabels])
+    const [fieldsetList, setFieldsetList] = useState(data.fieldsets)
 
     return(
         <form className="form" autoComplete='off'>
             <FormHeader
-                title={title}
+                title={data.title}
                 isCollapsed={isCollapsed}
                 onClick={handleToggle}
             ></FormHeader>
             { !isCollapsed && (
-                labelsList.map((labels, index) => {
+                fieldsetList.map((fieldset, fieldsetIndex) => {
                     return (
-                        <ul key={index} className="form__fieldset">
-                            {labels.map((label, index) => {
-                                return <TextInput label={label} key={index}>{label}</TextInput>
+                        <ul className="form__fieldset" key={fieldsetIndex}>
+                            {fieldset.map((input, inputIndex) => {
+                                return <TextInput label={input.label} key={inputIndex} />
                             })}
                         </ul>
                     )
                 })
             )}
-
             <div className="btn-container">
                 {
                     (!isCollapsed && fieldsetLimit > 1) && (
                         <button className='default-btn'
                             onClick={handleAddFieldset}
-                            disabled={labelsList.length >= fieldsetLimit}
-                        >Add {title}</button>
+                            disabled={data.fieldsets.length >= fieldsetLimit}
+                        >Add {data.buttonText}</button>
                     )
                 }
                 {
-                    (!isCollapsed && labelsList.length > 1) && (
+                    (!isCollapsed && fieldsetList.length > 1) && (
                         <button className='default-btn'
                         onClick={handleDeleteFieldset}
-                        >Delete {title}</button>
+                        >Delete {data.buttonText}</button>
                     )
                 }
             </div>
@@ -53,17 +52,18 @@ export function Form({ title, fieldsetLabels, fieldsetLimit }) {
 
     function handleAddFieldset(e) {
         e.preventDefault();
-        if (labelsList.length < fieldsetLimit) {
-            setLabelsList([...labelsList, fieldsetLabels])
+        if (fieldsetList.length < fieldsetLimit) {
+            setFieldsetList([...fieldsetList, ...data.fieldsets])
         }
+        console.log(fieldsetList);
     }
 
     function handleDeleteFieldset(e) {
         e.preventDefault();
-        if (labelsList.length > 1) {
-            const labelsListCopy = labelsList;
-            labelsListCopy.pop();
-            setLabelsList([...labelsListCopy]);
+        if (fieldsetList.length > 1) {
+            const fieldsetListCopy = fieldsetList;
+            fieldsetListCopy.pop();
+            setFieldsetList([...fieldsetListCopy]);
         }
     }
 }

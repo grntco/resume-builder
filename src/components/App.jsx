@@ -5,6 +5,7 @@ import { Toolbar } from './cards/Toolbar';
 import { Resume } from './Resume';
 import { Header } from './Header';
 import { Footer } from './Footer';
+import { resumeData } from '../resumeData';
 
 export function App() {
   return (
@@ -16,16 +17,16 @@ export function App() {
             <Toolbar />
           </Card>
           <Card>
-            <Form title="Personal Details" fieldsetLabels={["Full Name", "Email", "Phone Number", "Location"]} fieldsetLimit={1} />
+            <Form data={resumeData.personalDetails} />
           </Card>
           <Card>
-            <Form title="Work Experience" fieldsetLabels={["Company", "Position", "Location", "Start Date", "End Date"]} fieldsetLimit={3}/>
+            <Form data={resumeData.workExperience} fieldsetLimit={3}/>
           </Card>
           <Card>
-            <Form title="Education" fieldsetLabels={["University", "Degree", "Location", "Start Date", "End Date"]} fieldsetLimit={3}/>
+            <Form data={resumeData.education} fieldsetLimit={2}/>
           </Card>
           <Card>
-            <Form title="Skills & Languages" fieldsetLabels={["Skill"]} fieldsetLimit={10}/>
+            <Form data={resumeData.skills} fieldsetLimit={15}/>
           </Card>
           <Card>
             <div className="btn-container">
