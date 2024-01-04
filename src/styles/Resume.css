@@ -1,8 +1,78 @@
 .resume {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     height: calc(80px * 11);
     width: calc(80px * 8.5);
+    padding: 32px;
     background-color: var(--primary-bg-color);
     -webkit-box-shadow: 2px 2px 12px 4px rgba(240,240,240,1);
     -moz-box-shadow: 2px 2px 12px 4px rgba(240,240,240,1);
-    box-shadow: 2px 2px 12px 4px rgba(240,240,240,1);;
+    box-shadow: 2px 2px 12px 4px rgba(240,240,240,1);
 }
+
+.resume__section {
+    padding-bottom: 8px;
+}
+
+.resume__section:first-child,
+.resume__section-title {
+    border-bottom: 1px solid var(--secondary-txt-color);
+}
+
+.resume__name {
+
+}
+
+/* Personal Details */
+.resume__contact-info-container {
+    display: flex;
+}
+
+.resume__contact-info-container {
+    display: flex;
+    gap: 12px;
+}
+
+.resume__contact-info-container li {
+    list-style: none;
+}
+
+.resume__contact-info-container li:first-child:after,
+.resume__contact-info-container li:nth-child(2):after {
+    content: "|";
+    padding-left: 12px;
+    color: var(--secondary-txt-color);
+}
+
+/* Sections */
+.resume__section-title {
+
+}
+
+.resume__experience-container {
+    font-size: 0.9rem;
+}
+
+.resume__details-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.resume__experience-container h4,
+.resume__details-container:first-child {
+    font-weight: 500;
+}
+
+.resume__details-container:nth-child(2) {
+    font-style: italic;
+}
+
+.resume__responsibilities-container {
+    padding-left: 24px;
+}
+
+.resume__responsibilities-container li::marker {
+    color: var(--secondary-txt-color);
+}
+
