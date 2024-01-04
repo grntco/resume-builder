@@ -1,16 +1,22 @@
 .footer {
     display: flex;
     justify-content: center;
-    /* align-content: center; */
     height: 2rem;
-  }
+}
   
-  .footer__link {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
-  
-  .footer .github-icon {
-    height: 1.5rem;
-  }
+.footer__link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--primary-txt-color);
+}
+
+.footer__link:hover {
+  text-decoration: underline;
+}
+
+.footer .github-icon {
+  height: 1.4rem;
+}

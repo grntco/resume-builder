@@ -25,22 +25,24 @@ export function Form({ title, fieldsetLabels, fieldsetLimit }) {
                     )
                 })
             )}
-            {
-                (!isCollapsed && fieldsetLimit > 1) && (
-                    <button
-                        onClick={handleAddFieldset}
-                        disabled={labelsList.length >= fieldsetLimit}
-                    >Add {title}</button>
-                )
-            }
-            
-            {
-                (!isCollapsed && labelsList.length > 1) && (
-                    <button
-                    onClick={handleDeleteFieldset}
-                    >Delete {title}</button>
-                )
-            }
+
+            <div className="btn-container">
+                {
+                    (!isCollapsed && fieldsetLimit > 1) && (
+                        <button className='default-btn'
+                            onClick={handleAddFieldset}
+                            disabled={labelsList.length >= fieldsetLimit}
+                        >Add {title}</button>
+                    )
+                }
+                {
+                    (!isCollapsed && labelsList.length > 1) && (
+                        <button className='default-btn'
+                        onClick={handleDeleteFieldset}
+                        >Delete {title}</button>
+                    )
+                }
+            </div>
         </form>
     )
 

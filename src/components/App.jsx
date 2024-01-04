@@ -1,6 +1,7 @@
 import '../styles/App.css';
 import { Card } from './cards/Card';
 import { Form } from './cards/Form';
+import { Toolbar } from './cards/Toolbar';
 import { Resume } from './Resume';
 import { Header } from './Header';
 import { Footer } from './Footer';
@@ -12,10 +13,7 @@ export function App() {
       <section className="main-content">
         <div className="cards-container">
           <Card>
-            <div className="toolbar">
-              <button>Toggle Preview</button>
-              <button>Download as PDF</button>
-            </div>
+            <Toolbar />
           </Card>
           <Card>
             <Form title="Personal Details" fieldsetLabels={["Full Name", "Email", "Phone Number", "Location"]} fieldsetLimit={1} />
@@ -30,7 +28,9 @@ export function App() {
             <Form title="Skills & Languages" fieldsetLabels={["Skill"]} fieldsetLimit={10}/>
           </Card>
           <Card>
-            <button>Display</button>
+            <div className="btn-container">
+              <button className='default-btn'>Display</button>
+            </div>
           </Card>
         </div>
         <div className="preview-container">

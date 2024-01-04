@@ -5,14 +5,14 @@ export function FormHeader({ title, onClick, isCollapsed}) {
     return (
         <div className="form-header">
             <h2 className="form-title">{title}</h2>
-            <button className="form-btn" onClick={onClick}>
+            <button className="toggle-btn" onClick={onClick}>
                 <div 
                     className={!isCollapsed 
-                        ? "form-btn-arrow" 
-                        : "form-btn-arrow active"
+                        ? "toggle-btn__arrow" 
+                        : "toggle-btn__arrow active"
                     }
                 >
-                    <ChevronUpIcon />
+                    <ChevronUpIcon className="icon"/>
                 </div>
             </button>
         </div>

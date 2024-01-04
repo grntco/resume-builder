@@ -1,0 +1,19 @@
+.toolbar {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.toolbar__btn {
+    outline: none;
+    border: none;
+    height: 1.8rem;
+    width: 1.8rem;
+    border-radius: 4px;
+    background-color: var(--primary-bg-color);
+}
+
+.toolbar__btn:hover {
+    background-color: var(--secondary-bg-color);
+
+}

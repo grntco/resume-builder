@@ -4,6 +4,12 @@
     align-items: center;
 }
 
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
 .form-title {
     font-size: 1.4rem;
     font-weight: 600;
@@ -13,7 +19,7 @@
     margin-top: 16px;
 }
 
-.form-btn {
+.toggle-btn {
     outline: none;
     border: none;
     height: 1.6rem;
@@ -22,18 +28,17 @@
     background-color: var(--primary-bg-color);
 }
 
-.form-btn:hover {
-    cursor: pointer;
+.toggle-btn:hover {
     background-color: var(--secondary-bg-color);
 }
 
-.form-btn-arrow {
+.toggle-btn__arrow {
     height: 1.5rem;
     fill: var(--secondary-txt-color);
     transition: transform 0.3s ease;
 }
 
-.form-btn-arrow.active {
+.toggle-btn__arrow.active {
     transform: rotate(180deg);
 }
 
