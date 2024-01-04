@@ -9,19 +9,27 @@
     -webkit-box-shadow: 2px 2px 12px 4px rgba(240,240,240,1);
     -moz-box-shadow: 2px 2px 12px 4px rgba(240,240,240,1);
     box-shadow: 2px 2px 12px 4px rgba(240,240,240,1);
+    line-height: 1.2rem;
 }
 
 .resume__section {
-    padding-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.resume__section-title {
+    font-weight: 600;
 }
 
 .resume__section:first-child,
 .resume__section-title {
+    padding-bottom: 2px;
     border-bottom: 1px solid var(--secondary-txt-color);
 }
 
 .resume__name {
-
+    font-size: 2rem;
 }
 
 /* Personal Details */
@@ -46,9 +54,7 @@
 }
 
 /* Sections */
-.resume__section-title {
 
-}
 
 .resume__experience-container {
     font-size: 0.9rem;
@@ -69,10 +75,25 @@
 }
 
 .resume__responsibilities-container {
+    line-height: 1.1rem;
     padding-left: 24px;
 }
 
 .resume__responsibilities-container li::marker {
     color: var(--secondary-txt-color);
+}
+
+.resume__skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    font-size: 0.8rem;
+    list-style: none;
+}
+
+.resume__skill-item {
+    padding: 4px 8px;
+    border-radius: 24px;
+    background-color: var(--secondary-bg-color);
 }
 
