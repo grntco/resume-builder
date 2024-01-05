@@ -16,10 +16,17 @@ export function App() {
           <Card>
             <Toolbar />
           </Card>
-          <Card>
-            <Form data={resumeData.personalDetails} />
-          </Card>
-          <Card>
+          {
+            resumeData.map((form, formIndex) => {
+              return (
+                <Card key={formIndex}>
+                  <Form data={resumeData} formIndex={formIndex} />
+                </Card>
+              )
+            })
+          }
+
+          {/* <Card>
             <Form data={resumeData.workExperience} fieldsetLimit={3}/>
           </Card>
           <Card>
@@ -27,7 +34,7 @@ export function App() {
           </Card>
           <Card>
             <Form data={resumeData.skills} fieldsetLimit={15}/>
-          </Card>
+          </Card> */}
           <Card>
             <button className='default-btn'>Display</button>
           </Card>

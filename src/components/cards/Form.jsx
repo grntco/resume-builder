@@ -3,14 +3,14 @@ import { FormHeader } from './FormHeader'
 import { TextInput } from './TextInput';
 import { useState } from 'react';
 
-export function Form({ data, fieldsetLimit = 1 }) {
+export function Form({ data, formIndex}) {
     const [isCollapsed, setIsCollapsed] = useState(true)
-    const [fieldsetList, setFieldsetList] = useState(data.fieldsets)
+    const [fieldsetList, setFieldsetList] = useState(data[formIndex].fieldsets)
 
     return(
         <form className="form" autoComplete='off'>
             <FormHeader
-                title={data.title}
+                title={data[formIndex].title}
                 isCollapsed={isCollapsed}
                 onClick={handleToggle}
             ></FormHeader>
@@ -20,30 +20,37 @@ export function Form({ data, fieldsetLimit = 1 }) {
                         return (
                             <ul className="form__fieldset" key={fieldsetIndex}>
                                 {fieldset.map((input, inputIndex) => {
-                                    return <TextInput label={input.label} key={inputIndex} />
+                                    return <TextInput
+                                        label={input.label}
+                                        key={inputIndex} 
+                                        formIndex={formIndex} 
+                                        fieldsetIndex={fieldsetIndex}
+                                        inputIndex={inputIndex}
+                                        value={input.value} 
+                                        data={data}/>
                                 })}
                             </ul>
                         )
                     })
                 )}
             {
-                (!isCollapsed && fieldsetLimit > 1) && (
+                (!isCollapsed && data[formIndex].fieldsetLimit > 1) && (
                     <button className='default-btn'
                         onClick={handleAddFieldset}
-                        disabled={data.fieldsets.length >= fieldsetLimit}
-                    >Add {data.buttonText} (max: {fieldsetLimit})</button>
+                        // disabled={data[formIndex].fieldsets.length >= data[formIndex].fieldsetLimit}
+                    >Add {data[formIndex].buttonText} (max: {data[formIndex].fieldsetLimit})</button>
                 )
             }
             {
                 (!isCollapsed && fieldsetList.length > 1) && (
                     <button className='default-btn'
                     onClick={handleDeleteFieldset}
-                    >Delete {data.buttonText}</button>
+                    >Delete {data[formIndex].buttonText}</button>
                 )
             }
         </form>
     )
-
+    
     function handleToggle(e) {
         e.preventDefault();
         setIsCollapsed(!isCollapsed);
@@ -51,8 +58,8 @@ export function Form({ data, fieldsetLimit = 1 }) {
 
     function handleAddFieldset(e) {
         e.preventDefault();
-        if (fieldsetList.length < fieldsetLimit) {
-            setFieldsetList([...fieldsetList, ...data.fieldsets])
+        if (fieldsetList.length < data[formIndex].fieldsetLimit) {
+            setFieldsetList([...fieldsetList, ...data[formIndex].fieldsets])
         }
         console.log(fieldsetList);
     }

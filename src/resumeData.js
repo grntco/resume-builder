@@ -1,5 +1,5 @@
-export const resumeData = {
-    personalDetails: {
+export const resumeData = [
+    {
         title: "Personal Details",
         fieldsets: [
             [{
@@ -20,9 +20,10 @@ export const resumeData = {
             }]   
         ]
     },
-    workExperience: {
+    {
         title: "Work Experience",
         buttonText: "Experience",
+        fieldsetLimit: 3,
         fieldsets: [
             [{
                 label: "Company", 
@@ -46,9 +47,10 @@ export const resumeData = {
             }]   
         ]
     },
-    education: {
+    {
         title: "Education",
         buttonText: "Education",
+        fieldsetLimit: 2,
         fieldsets: [
             [{
                 label: "University", 
@@ -72,14 +74,15 @@ export const resumeData = {
             }]   
         ]
     },
-    skills: {
+    {
         title: "Skills",
         buttonText: "Skill",
+        fieldsetLimit: 15,
         fieldsets: [
             [{
                 label: "Skill", 
                 value: "",
             }]   
         ]
-    },
-}
+    }
+]
