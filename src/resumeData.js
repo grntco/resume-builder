@@ -17,7 +17,7 @@ export const resumeData = [
             {
                 label: "Location", 
                 value: "",
-            }]   
+            }] 
         ]
     },
     {
