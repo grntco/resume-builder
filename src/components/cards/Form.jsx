@@ -31,7 +31,7 @@ export function Form({ data, fieldsetLimit = 1 }) {
                         <button className='default-btn'
                             onClick={handleAddFieldset}
                             disabled={data.fieldsets.length >= fieldsetLimit}
-                        >Add {data.buttonText}</button>
+                        >Add {data.buttonText} (max: {fieldsetLimit})</button>
                     )
                 }
                 {
