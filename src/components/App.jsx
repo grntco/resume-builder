@@ -29,9 +29,7 @@ export function App() {
             <Form data={resumeData.skills} fieldsetLimit={15}/>
           </Card>
           <Card>
-            <div className="btn-container">
-              <button className='default-btn'>Display</button>
-            </div>
+            <button className='default-btn'>Display</button>
           </Card>
         </div>
         <div className="preview-container">

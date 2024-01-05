@@ -14,34 +14,33 @@ export function Form({ data, fieldsetLimit = 1 }) {
                 isCollapsed={isCollapsed}
                 onClick={handleToggle}
             ></FormHeader>
-            { !isCollapsed && (
-                fieldsetList.map((fieldset, fieldsetIndex) => {
-                    return (
-                        <ul className="form__fieldset" key={fieldsetIndex}>
-                            {fieldset.map((input, inputIndex) => {
-                                return <TextInput label={input.label} key={inputIndex} />
-                            })}
-                        </ul>
-                    )
-                })
-            )}
-            <div className="btn-container">
-                {
-                    (!isCollapsed && fieldsetLimit > 1) && (
-                        <button className='default-btn'
-                            onClick={handleAddFieldset}
-                            disabled={data.fieldsets.length >= fieldsetLimit}
-                        >Add {data.buttonText} (max: {fieldsetLimit})</button>
-                    )
-                }
-                {
-                    (!isCollapsed && fieldsetList.length > 1) && (
-                        <button className='default-btn'
-                        onClick={handleDeleteFieldset}
-                        >Delete {data.buttonText}</button>
-                    )
-                }
-            </div>
+            { 
+                !isCollapsed && (
+                    fieldsetList.map((fieldset, fieldsetIndex) => {
+                        return (
+                            <ul className="form__fieldset" key={fieldsetIndex}>
+                                {fieldset.map((input, inputIndex) => {
+                                    return <TextInput label={input.label} key={inputIndex} />
+                                })}
+                            </ul>
+                        )
+                    })
+                )}
+            {
+                (!isCollapsed && fieldsetLimit > 1) && (
+                    <button className='default-btn'
+                        onClick={handleAddFieldset}
+                        disabled={data.fieldsets.length >= fieldsetLimit}
+                    >Add {data.buttonText} (max: {fieldsetLimit})</button>
+                )
+            }
+            {
+                (!isCollapsed && fieldsetList.length > 1) && (
+                    <button className='default-btn'
+                    onClick={handleDeleteFieldset}
+                    >Delete {data.buttonText}</button>
+                )
+            }
         </form>
     )
 

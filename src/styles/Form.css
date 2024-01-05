@@ -7,16 +7,17 @@
 .form {
     display: flex;
     flex-direction: column;
-
+    gap: 8px;
 }
 
 .form-title {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 600;
+    letter-spacing: 0.025rem;
 }
 
 .form__fieldset {
-    margin-bottom: 16px;
+    margin-bottom: 8px;
 }
 
 .toggle-btn {
@@ -29,7 +30,7 @@
 }
 
 .toggle-btn:hover {
-    background-color: var(--secondary-bg-color);
+    background-color: var(--btn-bg-color-hover);
 }
 
 .toggle-btn__arrow {
