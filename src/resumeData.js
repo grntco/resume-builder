@@ -4,7 +4,7 @@ export const resumeData = [
         fieldsets: [
             [{
                 label: "Full Name", 
-                value: "",
+                value: "Grant Collins",
             },      
             {
                 label: "Email", 

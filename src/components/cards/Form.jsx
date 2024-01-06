@@ -3,7 +3,7 @@ import { FormHeader } from './FormHeader'
 import { TextInput } from './TextInput';
 import { useState } from 'react';
 
-export function Form({ data, formIndex}) {
+export function Form({ data, formIndex, handleInputChange }) {
     const [isCollapsed, setIsCollapsed] = useState(true)
     const [fieldsetList, setFieldsetList] = useState(data[formIndex].fieldsets)
 
@@ -21,13 +21,15 @@ export function Form({ data, formIndex}) {
                             <ul className="form__fieldset" key={fieldsetIndex}>
                                 {fieldset.map((input, inputIndex) => {
                                     return <TextInput
-                                        label={input.label}
                                         key={inputIndex} 
+                                        label={input.label}
                                         formIndex={formIndex} 
                                         fieldsetIndex={fieldsetIndex}
                                         inputIndex={inputIndex}
-                                        value={input.value} 
-                                        data={data}/>
+                                        handleInputChange={handleInputChange}
+                                        // value={input.value} 
+                                        // data={data}
+                                    ></TextInput>
                                 })}
                             </ul>
                         )
