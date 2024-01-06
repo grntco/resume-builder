@@ -1,14 +1,14 @@
 import '../styles/Resume.css'
 
-export function Resume() {
+export function Resume({ data }) {
     return (
         <div className="resume">
             <div className="resume__section">
-                <h2 className="resume__name">Grant Collins</h2>
+                <h2 className="resume__name">{data[0].fieldsets[0][0].value}</h2>
                 <ul className="resume__contact-info-container">
-                    <li className="email">grantcollins03@gmail.com</li>
-                    <li className="phone-number">(803) 445-3607</li>
-                    <li className="location">Greenville, SC</li>
+                    <li className="email">{data[0].fieldsets[0][1].value}</li>
+                    <li className="phone-number">{data[0].fieldsets[0][2].value}</li>
+                    <li className="location">{data[0].fieldsets[0][3].value}</li>
                 </ul>
             </div>
             <div className="resume__section">

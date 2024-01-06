@@ -6,7 +6,6 @@ import { useState } from 'react';
 
 export function MainContent( { data } ) {
     const [updatedData, setUpdatedData] = useState(data);
-    console.log(updatedData);
 
     return ( 
         <section className="main-content">
