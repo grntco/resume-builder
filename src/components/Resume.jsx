@@ -13,7 +13,7 @@ export function Resume({ data }) {
             </div>
             <div className="resume__section">
                 <h3 className="resume__section-title">Work Experience</h3>
-                <div className="resume__experience-container">
+                {/* <div className="resume__experience-container">
                     <div className="resume__details-container">
                         <h4>Amazon</h4>
                         <p>Aug. 2020 - Jan. 2024</p>
@@ -28,8 +28,30 @@ export function Resume({ data }) {
                         <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat veniam natus fugit! Incidunt labore libero sapiente, tempore assumenda ut ea?</li>
                         <li>Lorem ipsum dolor sit amet.</li>
                     </ul>
-                </div>
-                <div className="resume__experience-container">
+                </div> */}
+                { 
+                    data.filter(form => form.title === 'Work Experience')
+                    [0].fieldsets.map((fieldset, fieldsetIndex) => (
+                            <div key={fieldsetIndex} className="resume__experience-container">
+                                <div className="resume__details-container">
+                                    <h4>Help</h4>
+                                    <p>Aug. 2020 - Jan. 2024</p>
+                                </div>
+                                <div className="resume__details-container">
+                                    <p>Jr. Software Developer</p>
+                                    <p>Remote</p>
+                                </div>
+                                <ul className="resume__responsibilities-container">
+                                    <li>Lorem ipsum dolor sit amet.</li>
+                                    <li>Lorem ipsum dolor sit amet.</li>
+                                    <li>Lorem ipsum dolor sit amet.</li>
+                                    <li>Lorem ipsum dolor sit amet.</li>
+                                </ul>
+                            </div>
+                        )
+                    )
+                }
+                {/* <div className="resume__experience-container">
                     <div className="resume__details-container">
                         <h4>Amazon</h4>
                         <p>Aug. 2020 - Jan. 2024</p>
@@ -44,24 +66,8 @@ export function Resume({ data }) {
                         <li>Lorem ipsum dolor sit amet.</li>
                         <li>Lorem ipsum dolor sit amet.</li>
                     </ul>
-                </div>
-                <div className="resume__experience-container">
-                    <div className="resume__details-container">
-                        <h4>Amazon</h4>
-                        <p>Aug. 2020 - Jan. 2024</p>
-                    </div>
-                    <div className="resume__details-container">
-                        <p>Jr. Software Developer</p>
-                        <p>Remote</p>
-                    </div>
-                    <ul className="resume__responsibilities-container">
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                    </ul>
-                </div>
-            </div>
+                </div> */}
+            </div> 
             <div className="resume__section">
                 <h3 className="resume__section-title">Education</h3>
                 <div className="resume__experience-container">

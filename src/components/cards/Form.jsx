@@ -53,17 +53,18 @@ export function Form({ data, formIndex, handleInputChange }) {
         </form>
     )
     
+
     function handleToggle(e) {
         e.preventDefault();
         setIsCollapsed(!isCollapsed);
     }
 
+    // I think I need to move these up to main content component since they update the data state
     function handleAddFieldset(e) {
         e.preventDefault();
         if (fieldsetList.length < data[formIndex].fieldsetLimit) {
             setFieldsetList([...fieldsetList, ...data[formIndex].fieldsets])
         }
-        console.log(fieldsetList);
     }
 
     function handleDeleteFieldset(e) {
