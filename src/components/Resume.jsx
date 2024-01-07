@@ -30,16 +30,16 @@ export function Resume({ data }) {
                     </ul>
                 </div> */}
                 { 
-                    data.filter(form => form.title === 'Work Experience')
-                    [0].fieldsets.map((fieldset, fieldsetIndex) => (
+                    data.filter(form => form.title === 'Work Experience')[0]
+                    .fieldsets.map((fieldset, fieldsetIndex) => (
                             <div key={fieldsetIndex} className="resume__experience-container">
                                 <div className="resume__details-container">
-                                    <h4>Help</h4>
-                                    <p>Aug. 2020 - Jan. 2024</p>
+                                    <h4>{fieldset[0].value}</h4>
+                                    <p>{fieldset[3].value} - {fieldset[4].value}</p>
                                 </div>
                                 <div className="resume__details-container">
-                                    <p>Jr. Software Developer</p>
-                                    <p>Remote</p>
+                                    <p>{fieldset[1].value}</p>
+                                    <p>{fieldset[2].value}</p>
                                 </div>
                                 <ul className="resume__responsibilities-container">
                                     <li>Lorem ipsum dolor sit amet.</li>

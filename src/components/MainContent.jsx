@@ -21,6 +21,7 @@ export function MainContent( { data } ) {
                                 data={updatedData} 
                                 formIndex={formIndex} 
                                 handleInputChange={handleInputChange}
+                                handleAddFieldset={handleAddFieldset}
                             ></Form>
                         </Card>
                     )
@@ -60,21 +61,46 @@ export function MainContent( { data } ) {
                 return form;
             })
         })
-
-
-        // setUpdatedData(updatedData.map((form, i) => {
-        //     if (formIndex === i) {
-        //         return { ...form, fieldsets: form.fieldsets.map((fieldset, j) => {
-        //             if (fieldsetIndex === j) {
-        //                 return [...fieldset, fieldset.map((input, k) => {
-        //                     if (inputIndex === k) {
-        //                         console.log('hello');
-        //                         return { ...input, value: e.target.value }
-        //                     }
-        //                 })]
-        //             }
-        //         })}
-        //     }
-        // }))
     }
+
+    function handleAddFieldset(e, currentForm) {
+        e.preventDefault();
+        setUpdatedData((prevData) => {
+            if (currentForm.fieldsets.length < currentForm.fieldsetLimit) {
+                return prevData.map(form => {
+                    if (form === currentForm) {
+                        return {
+                            ...form,
+                            fieldsets: [...form.fieldsets, form.fieldsets[0]]
+                        }
+                    }
+                    return form;
+                })
+            }
+            return prevData;
+        })
+
+        // setUpdatedData((prevData) => {
+        //     if (prevData[formIndex].fieldsets.length < prevData[formIndex].fieldsetLimit)
+        //         return prevData.map((form, i) => {
+        //             if (formIndex === i) {
+        //                 const blankFieldset = form.fieldsets[0];
+        //                 blankFieldset.map(input => input.value = "")
+
+        //                 return {
+        //                     ...form,
+        //                     fieldsets: [...form.fieldsets, blankFieldset]
+        //                 }
+        //             }
+        //             return form;
+        //         })
+
+        //     return prevData;
+        // })
+
+    }
+        
+        // if (fieldsetList.length < data[formIndex].fieldsetLimit) {
+        //     setFieldsetList([...fieldsetList, ...data[formIndex].fieldsets])
+        // }
 }

@@ -27,23 +27,23 @@ export const resumeData = [
         fieldsets: [
             [{
                 label: "Company", 
-                value: "",
+                value: "[Company]",
             },      
             {
                 label: "Position", 
-                value: "",
+                value: "[Position]",
             },      
             {
                 label: "Location", 
-                value: "",
+                value: "[Location]",
             },      
             {
                 label: "Start Date", 
-                value: "",
+                value: "[Start Date]",
             },   
             {
                 label: "End Date", 
-                value: "",
+                value: "[End Date]",
             }]   
         ]
     },

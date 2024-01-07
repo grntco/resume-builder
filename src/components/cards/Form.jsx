@@ -3,7 +3,7 @@ import { FormHeader } from './FormHeader'
 import { TextInput } from './TextInput';
 import { useState } from 'react';
 
-export function Form({ data, formIndex, handleInputChange }) {
+export function Form({ data, formIndex, handleInputChange, handleAddFieldset }) {
     const [isCollapsed, setIsCollapsed] = useState(true)
     const [fieldsetList, setFieldsetList] = useState(data[formIndex].fieldsets)
 
@@ -16,7 +16,7 @@ export function Form({ data, formIndex, handleInputChange }) {
             ></FormHeader>
             { 
                 !isCollapsed && (
-                    fieldsetList.map((fieldset, fieldsetIndex) => {
+                    data[formIndex].fieldsets.map((fieldset, fieldsetIndex) => {
                         return (
                             <ul className="form__fieldset" key={fieldsetIndex}>
                                 {fieldset.map((input, inputIndex) => {
@@ -38,13 +38,13 @@ export function Form({ data, formIndex, handleInputChange }) {
             {
                 (!isCollapsed && data[formIndex].fieldsetLimit > 1) && (
                     <button className='default-btn add-btn'
-                        onClick={handleAddFieldset}
+                        onClick={(e) => handleAddFieldset(e, data[formIndex])}
                         disabled={data[formIndex].fieldsets.length >= data[formIndex].fieldsetLimit}
                     >Add {data[formIndex].buttonText} (max: {data[formIndex].fieldsetLimit})</button>
                 )
             }
             {
-                (!isCollapsed && fieldsetList.length > 1) && (
+                (!isCollapsed && data[formIndex].fieldsets.length > 1) && (
                     <button className='default-btn delete-btn'
                     onClick={handleDeleteFieldset}
                     >Delete {data[formIndex].buttonText}</button>
@@ -60,12 +60,12 @@ export function Form({ data, formIndex, handleInputChange }) {
     }
 
     // I think I need to move these up to main content component since they update the data state
-    function handleAddFieldset(e) {
-        e.preventDefault();
-        if (fieldsetList.length < data[formIndex].fieldsetLimit) {
-            setFieldsetList([...fieldsetList, ...data[formIndex].fieldsets])
-        }
-    }
+    // function handleAddFieldset(e) {
+    //     e.preventDefault();
+    //     if (fieldsetList.length < data[formIndex].fieldsetLimit) {
+    //         setFieldsetList([...fieldsetList, ...data[formIndex].fieldsets])
+    //     }
+    // }
 
     function handleDeleteFieldset(e) {
         e.preventDefault();
