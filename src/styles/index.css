@@ -9,6 +9,13 @@
   --input-focus-color: #38bdf8;
   --btn-bg-color: #d4d4d8;
   --btn-bg-color-hover: #e4e4e7; 
+  --add-btn-bg-color: #bae6fd;
+  --add-btn-bg-color-hover: #7dd3fc;
+  --add-btn-txt-color: #0284c7;
+  --delete-btn-bg-color: #fecaca;
+  --delete-btn-bg-color-hover: #fca5a5;
+  --delete-btn-txt-color: #dc2626;
+
 
   font-family: var(--font-family);
   line-height: 1.5;
@@ -38,10 +45,6 @@ button:hover {
   cursor: pointer;
 }
 
-button:disabled {
-  cursor: default;
-}
-
 .btn-container {
   display: flex;
   justify-content: center;
@@ -54,18 +57,6 @@ button:disabled {
   border-radius: 4px;
   font-family: var(--font-family);
   font-weight: 500;
-  background-color: var(--btn-bg-color);
-  color: var(--primary-txt-color);
-}
-
-.default-btn:hover {
-  background-color: var(--btn-bg-color-hover);
-  color: var(--secondary-txt-color);
-}
-
-.default-btn:disabled:hover {
-  background-color: var(--secondary-bg-color);
-  color: var(--secondary-txt-color);
 }
 
 .icon {

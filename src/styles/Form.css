@@ -43,6 +43,30 @@
     transform: rotate(180deg);
 }
 
+.add-btn {
+    background-color: var(--add-btn-bg-color);
+    color: var(--add-btn-txt-color);
+}
+
+.add-btn:hover {
+    background-color: var(--add-btn-bg-color-hover);
+}
+
+.add-btn:disabled {
+    cursor: default;   
+    background-color: var(--btn-bg-color);
+    color: var(--secondary-txt-color);
+}
+
+.delete-btn {
+    background-color: var(--delete-btn-bg-color);
+    color: var(--delete-btn-txt-color);
+}
+
+.delete-btn:hover {
+    background-color: var(--delete-btn-bg-color-hover);
+}
+
 .form__inputs-container {
     list-style: none;
     display: flex;

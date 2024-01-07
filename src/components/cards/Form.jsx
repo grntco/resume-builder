@@ -37,15 +37,15 @@ export function Form({ data, formIndex, handleInputChange }) {
                 )}
             {
                 (!isCollapsed && data[formIndex].fieldsetLimit > 1) && (
-                    <button className='default-btn'
+                    <button className='default-btn add-btn'
                         onClick={handleAddFieldset}
-                        // disabled={data[formIndex].fieldsets.length >= data[formIndex].fieldsetLimit}
+                        disabled={data[formIndex].fieldsets.length >= data[formIndex].fieldsetLimit}
                     >Add {data[formIndex].buttonText} (max: {data[formIndex].fieldsetLimit})</button>
                 )
             }
             {
                 (!isCollapsed && fieldsetList.length > 1) && (
-                    <button className='default-btn'
+                    <button className='default-btn delete-btn'
                     onClick={handleDeleteFieldset}
                     >Delete {data[formIndex].buttonText}</button>
                 )
