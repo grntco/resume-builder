@@ -3,7 +3,7 @@ import { FormHeader } from './FormHeader'
 import { TextInput } from './TextInput';
 import { useState } from 'react';
 
-export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteFieldset, handleAddResponsibility, handleDeleteResponsibility }) {
+export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteFieldset, handleAddResponsibility, handleDeleteResponsibility, handleTextAreaChange }) {
     const [isCollapsed, setIsCollapsed] = useState(true)
     // const [fieldsetList, setFieldsetList] = useState(form.fieldsets)
 
@@ -37,7 +37,7 @@ export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteF
                                                     {
                                                         input.responsibilities.map((responsibility, i) => {
                                                             return (
-                                                                <textarea key={i} name="" id="" className="textarea"></textarea>
+                                                                <textarea key={i} name="" id="" className="textarea" onChange={(e) => handleTextAreaChange(e, form, fieldset, responsibility)}></textarea>
                                                             )
                                                         })    
                                                     }

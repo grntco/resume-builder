@@ -26,6 +26,7 @@ export function MainContent() {
                                 handleDeleteFieldset={handleDeleteFieldset}
                                 handleAddResponsibility={handleAddResponsibility}
                                 handleDeleteResponsibility={handleDeleteResponsibility}
+                                handleTextAreaChange={handleTextAreaChange}
                             ></Form>
                         </Card>
                     )
@@ -137,6 +138,36 @@ export function MainContent() {
                                     if (input.label === "Responsibilities") {
                                         return {...input, responsibilities: [...input.responsibilities.slice(0, input.responsibilities.length - 1)] }
                                     }
+                                    return input;
+                                })
+                            }
+                            return fieldset;
+                        })
+                    }
+                }
+                return form;
+            })
+        })
+    }
+
+    function handleTextAreaChange(e, currentForm, currentFieldset, currentTextArea) {
+        e.preventDefault();
+        setUpdatedData((prevData) => {
+            return prevData.map(form => {
+                if (form === currentForm) {
+                    return {
+                        ...form,
+                        fieldsets: form.fieldsets.map(fieldset => {
+                            if (fieldset === currentFieldset) {
+                                return fieldset.map(input => {
+                                    if (input.label === "Responsibilities") {
+                                        return {...input, responsibilities: input.responsibilities.map(responsibility => {
+                                            if (responsibility === currentTextArea) {
+                                                responsibility = e.target.value;
+                                            }
+                                            return responsibility;
+                                        })}
+                                    } 
                                     return input;
                                 })
                             }
