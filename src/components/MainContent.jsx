@@ -3,16 +3,16 @@ import { Form } from './cards/Form';
 import { Toolbar } from './cards/Toolbar';
 import { Resume } from './Resume';
 import { useState } from 'react';
+import { resumeData } from '../resumeData';
 
-export function MainContent( { data } ) {
-    const [updatedData, setUpdatedData] = useState(data);
+
+export function MainContent() {
+    const [updatedData, setUpdatedData] = useState(resumeData);
 
     return ( 
         <section className="main-content">
             <div className="cards-container">
-                <Card>
-                    <Toolbar />
-                </Card>
+                <Card><Toolbar /></Card>
                 {
                     updatedData.map((form, formIndex) => {
                     return (
@@ -38,7 +38,7 @@ export function MainContent( { data } ) {
 
     function handleInputChange(e, currentForm, fieldsetIndex, inputIndex) {
         setUpdatedData((prevData) => {
-            return prevData.map((form, i) => {
+            return prevData.map(form => {
                 if (form === currentForm) {
                     return {
                         ...form,

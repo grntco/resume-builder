@@ -7,14 +7,15 @@ export function TextInput({ label, form, fieldsetIndex, inputIndex, handleInputC
     // const [updatedData, setUpdatedData] = useState(data);
     // console.log(inputData.value, resumeData[formIndex].fieldsets[fieldsetIndex][inputIndex]);
 
+    const id = `${form.title}-${label}-${fieldsetIndex}-${inputIndex}`
     return (
         <li className="input-item">
             { (label !== "Skill") && (
-                <label htmlFor={label} className="input-label">{label}</label>
+                <label htmlFor={id} className="input-label">{label}</label>
             )}
             <input 
                 type="text"
-                id={label}
+                id={id}
                 className="input"
                 onChange={(e) => { handleInputChange(e, form, fieldsetIndex, inputIndex) }} 
             />

@@ -82,7 +82,7 @@ export const resumeData = [
             [{
                 label: "Skill", 
                 value: "",
-            }]   
+            }]
         ]
     }
 ]
