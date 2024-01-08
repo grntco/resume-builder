@@ -20,7 +20,7 @@ export function MainContent( { data } ) {
                             <Form 
                                 data={updatedData} 
                                 formIndex={formIndex}
-                                // form={updatedData(formIndex)} 
+                                form={form} 
                                 handleInputChange={handleInputChange}
                                 handleAddFieldset={handleAddFieldset}
                             ></Form>
@@ -35,10 +35,10 @@ export function MainContent( { data } ) {
         </section>
     )
 
-    function handleInputChange(e, formIndex, fieldsetIndex, inputIndex) {
+    function handleInputChange(e, currentForm, fieldsetIndex, inputIndex) {
         setUpdatedData((prevData) => {
             return prevData.map((form, i) => {
-                if (formIndex === i) {
+                if (form === currentForm) {
                     return {
                         ...form,
                         fieldsets: form.fieldsets.map((fieldset, j) => {
