@@ -1,4 +1,5 @@
 import '../styles/Resume.css'
+import { ResumeExperience } from './ResumeExperience'
 
 export function Resume({ data }) {
     return (
@@ -13,53 +14,11 @@ export function Resume({ data }) {
             </div>
             <div className="resume__section">
                 <h3 className="resume__section-title">Work Experience</h3>
-                { 
-                    data.filter(form => form.title === 'Work Experience')[0]
-                    .fieldsets.map((fieldset, fieldsetIndex) => (
-                            <div key={fieldsetIndex} className="resume__experience-container">
-                                <div className="resume__details-container">
-                                    <h4>{fieldset[0].value}</h4>
-                                    <p>{fieldset[3].value} - {fieldset[4].value}</p>
-                                </div>
-                                <div className="resume__details-container">
-                                    <p>{fieldset[1].value}</p>
-                                    <p>{fieldset[2].value}</p>
-                                </div>
-                                <ul className="resume__responsibilities-container">
-                                    <li>Lorem ipsum dolor sit amet.</li>
-                                    <li>Lorem ipsum dolor sit amet.</li>
-                                    <li>Lorem ipsum dolor sit amet.</li>
-                                    <li>Lorem ipsum dolor sit amet.</li>
-                                </ul>
-                            </div>
-                        )
-                    )
-                }
+                <ResumeExperience data={data} title={"Work Experience"} />
             </div> 
             <div className="resume__section">
                 <h3 className="resume__section-title">Education</h3>
-                { 
-                    data.filter(form => form.title === 'Education')[0]
-                    .fieldsets.map((fieldset, fieldsetIndex) => (
-                            <div key={fieldsetIndex} className="resume__experience-container">
-                                <div className="resume__details-container">
-                                    <h4>{fieldset[0].value}</h4>
-                                    <p>{fieldset[3].value} - {fieldset[4].value}</p>
-                                </div>
-                                <div className="resume__details-container">
-                                    <p>{fieldset[1].value}</p>
-                                    <p>{fieldset[2].value}</p>
-                                </div>
-                                <ul className="resume__responsibilities-container">
-                                    <li>Lorem ipsum dolor sit amet.</li>
-                                    <li>Lorem ipsum dolor sit amet.</li>
-                                    <li>Lorem ipsum dolor sit amet.</li>
-                                    <li>Lorem ipsum dolor sit amet.</li>
-                                </ul>
-                            </div>
-                        )
-                    )
-                }
+                <ResumeExperience data={data} title={"Education"} />
             </div>
             <div className="resume__section">
                 <h3 className="resume__section-title">Skills</h3>

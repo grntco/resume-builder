@@ -20,19 +20,49 @@ export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteF
                         return (
                             <ul className="form__fieldset" key={fieldsetIndex}>
                                 {fieldset.map((input, inputIndex) => {
-                                    return <TextInput
-                                        key={inputIndex} 
-                                        label={input.label}
-                                        form={form}
-                                        fieldsetIndex={fieldsetIndex}
-                                        inputIndex={inputIndex}
-                                        handleInputChange={handleInputChange}
-                                    ></TextInput>
+                                    if (input.label !== "Responsibilities") {
+                                        return <TextInput
+                                            key={inputIndex} 
+                                            label={input.label}
+                                            form={form}
+                                            fieldsetIndex={fieldsetIndex}
+                                            inputIndex={inputIndex}
+                                            handleInputChange={handleInputChange}
+                                        ></TextInput>
+                                    } else {
+                                        return (
+                                            <li key={inputIndex} className="textarea-item">
+                                                <label htmlFor="" className="input-label">{input.label}</label>
+                                                <ul className="text-area-container">
+                                                    {
+                                                        input.responsibilities.map((responsibility, i) => {
+                                                            return (
+                                                                <li key={i} >
+                                                                    <textarea  name="" id=""></textarea>
+                                                                    <button>Delete</button>
+                                                                </li>
+                                                            )
+                                                        })    
+                                                    }
+                                                </ul>
+                                            </li>
+                                        )
+                                    }
+                                    
                                 })}
                             </ul>
                         )
                     })
-                )}
+                )
+            }
+            {/* {
+                !isCollapsed && (
+                    console.log(
+                        form.fieldsets.filter(fieldset => fieldset.label === "Responsibilities")
+                        .responsibilities
+                    )
+                )
+            } */}
             {
                 (!isCollapsed && form.fieldsetLimit > 1) && (
                     <button className='default-btn add-btn'
