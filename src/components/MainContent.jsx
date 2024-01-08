@@ -28,9 +28,6 @@ export function MainContent( { data } ) {
                     )
                     })
                 }
-                <Card>
-                    <button className='default-btn'>Display</button>
-                </Card>
             </div>
             <div className="preview-container">
                 <Resume data={updatedData}></Resume>
