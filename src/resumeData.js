@@ -48,9 +48,10 @@ export const resumeData = [
             {
                 label: "Responsibilities",
                 responsibilities: [
-                    "did this thing",
-                    "did another thing",
-                    "did one more thing"
+                    "",
+                    // "did this thing",
+                    // "did another thing",
+                    // "did one more thing"
                 ]
             }]   
         ]
@@ -82,6 +83,7 @@ export const resumeData = [
             },
             {
                 label: "Responsibilities",
+                responsibilitiesLimit: 5,
                 responsibilities: [
                     "Earned degree",
                     "6.9 GPA",

@@ -24,6 +24,7 @@ export function MainContent() {
                                 handleInputChange={handleInputChange}
                                 handleAddFieldset={handleAddFieldset}
                                 handleDeleteFieldset={handleDeleteFieldset}
+                                handleAddResponsibility={handleAddResponsibility}
                             ></Form>
                         </Card>
                     )
@@ -90,6 +91,31 @@ export function MainContent() {
                     return {
                         ...form,
                         fieldsets: [...form.fieldsets.slice(0, form.fieldsets.length - 1)],
+                    }
+                }
+                return form;
+            })
+        })
+    }
+
+    function handleAddResponsibility(e, currentForm, currentFieldset) {
+        e.preventDefault();
+        setUpdatedData((prevData) => {
+            return prevData.map(form => {
+                if (form === currentForm) {
+                    return {
+                        ...form,
+                        fieldsets: form.fieldsets.map(fieldset => {
+                            if (fieldset === currentFieldset) {
+                                return fieldset.map(input => {
+                                    if (input.label === "Responsibilities") {
+                                        return {...input, responsibilities: [...input.responsibilities, ""] }
+                                    }
+                                    return input;
+                                })
+                            }
+                            return fieldset;
+                        })
                     }
                 }
                 return form;

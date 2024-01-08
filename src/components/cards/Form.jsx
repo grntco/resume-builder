@@ -3,7 +3,7 @@ import { FormHeader } from './FormHeader'
 import { TextInput } from './TextInput';
 import { useState } from 'react';
 
-export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteFieldset }) {
+export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteFieldset, handleAddResponsibility }) {
     const [isCollapsed, setIsCollapsed] = useState(true)
     // const [fieldsetList, setFieldsetList] = useState(form.fieldsets)
 
@@ -31,20 +31,21 @@ export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteF
                                         ></TextInput>
                                     } else {
                                         return (
-                                            <li key={inputIndex} className="textarea-item">
-                                                <label htmlFor="" className="input-label">{input.label}</label>
-                                                <ul className="text-area-container">
+                                            <li key={inputIndex} className="responsibilities-container">
+                                                <label htmlFor="" className="input-label">{input.label}</label>    
+                                                <div className="textarea-container">
                                                     {
                                                         input.responsibilities.map((responsibility, i) => {
                                                             return (
-                                                                <li key={i} >
-                                                                    <textarea  name="" id=""></textarea>
-                                                                    <button>Delete</button>
-                                                                </li>
+                                                                <textarea key={i} name="" id="" className="textarea"></textarea>
                                                             )
                                                         })    
                                                     }
-                                                </ul>
+                                                </div>
+                                                {/* <div className="btn-container"> */}
+                                                    <button className="default-btn add-btn" onClick={(e) => handleAddResponsibility(e, form, fieldset)}>Add Responsibilities</button>
+                                                    <button className="default-btn delete-btn">Delete Responsibilities</button>
+                                                {/* </div> */}
                                             </li>
                                         )
                                     }

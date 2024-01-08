@@ -106,3 +106,38 @@
     box-shadow: 2px 2px 12px 4px rgba(56,189,248,0.2);
     transform: scale(1.025);
 }
+
+.responsibilities-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.textarea-container {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.textarea {
+    font-family: var(--font-family);
+    font-weight: 500;
+    border: 2px solid var(--secondary-bg-color);
+    outline: none;
+    background-color: var(--secondary-bg-color);
+    padding: 8px 4px;
+    border-radius: 4px;
+    color: var(--secondary-txt-color);
+    transition: transform 0.025s ease-out;
+    resize: vertical;
+}
+
+.textarea:focus {
+    border: 2px solid var(--input-focus-color);
+    color: var(--primary-txt-color);
+    -webkit-box-shadow: 2px 2px 12px 4px rgba(56,189,248,0.2);
+    -moz-box-shadow: 2px 2px 12px 4px rgba(56,189,248,0.2);
+    box-shadow: 2px 2px 12px 4px rgba(56,189,248,0.2);
+    transform: scale(1.025);
+}
