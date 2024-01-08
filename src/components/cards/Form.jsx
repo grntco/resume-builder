@@ -3,7 +3,7 @@ import { FormHeader } from './FormHeader'
 import { TextInput } from './TextInput';
 import { useState } from 'react';
 
-export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteFieldset, handleAddResponsibility }) {
+export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteFieldset, handleAddResponsibility, handleDeleteResponsibility }) {
     const [isCollapsed, setIsCollapsed] = useState(true)
     // const [fieldsetList, setFieldsetList] = useState(form.fieldsets)
 
@@ -44,7 +44,7 @@ export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteF
                                                 </div>
                                                 {/* <div className="btn-container"> */}
                                                     <button className="default-btn add-btn" onClick={(e) => handleAddResponsibility(e, form, fieldset)}>Add Responsibilities</button>
-                                                    <button className="default-btn delete-btn">Delete Responsibilities</button>
+                                                    <button className="default-btn delete-btn" onClick={(e) => handleDeleteResponsibility(e, form ,fieldset)}>Delete Responsibilities</button>
                                                 {/* </div> */}
                                             </li>
                                         )
