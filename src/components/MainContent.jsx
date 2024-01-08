@@ -23,6 +23,7 @@ export function MainContent( { data } ) {
                                 form={form} 
                                 handleInputChange={handleInputChange}
                                 handleAddFieldset={handleAddFieldset}
+                                handleDeleteFieldset={handleDeleteFieldset}
                             ></Form>
                         </Card>
                     )
@@ -64,46 +65,35 @@ export function MainContent( { data } ) {
     function handleAddFieldset(e, currentForm) {
         e.preventDefault();
         setUpdatedData((prevData) => {
-            if (currentForm.fieldsets.length < currentForm.fieldsetLimit) {
-                return prevData.map(form => {
-                    if (form === currentForm) {
-                        const blankFieldset = form.fieldsets
-                            .slice(0, 1)
-                            .flat()
-                            .map(input => ({ ...input, value: "" }));
+            return prevData.map(form => {
+                if (form === currentForm) {
+                    const blankFieldset = form.fieldsets
+                        .slice(0, 1)
+                        .flat()
+                        .map(input => ({ ...input, value: "" }));
 
-                        return {
-                            ...form,
-                            fieldsets: [...form.fieldsets, blankFieldset]
-                        }
+                    return {
+                        ...form,
+                        fieldsets: [...form.fieldsets, blankFieldset]
                     }
-                    return form;
-                })
-            }
-            return prevData;
+                }
+                return form;
+            })
         })
-
-        // setUpdatedData((prevData) => {
-        //     if (prevData[formIndex].fieldsets.length < prevData[formIndex].fieldsetLimit)
-        //         return prevData.map((form, i) => {
-        //             if (formIndex === i) {
-        //                 const blankFieldset = form.fieldsets[0];
-        //                 blankFieldset.map(input => input.value = "")
-
-        //                 return {
-        //                     ...form,
-        //                     fieldsets: [...form.fieldsets, blankFieldset]
-        //                 }
-        //             }
-        //             return form;
-        //         })
-
-        //     return prevData;
-        // })
-
     }
         
-        // if (fieldsetList.length < data[formIndex].fieldsetLimit) {
-        //     setFieldsetList([...fieldsetList, ...data[formIndex].fieldsets])
-        // }
+    function handleDeleteFieldset(e, currentForm) {
+        e.preventDefault();
+        setUpdatedData((prevData) => {
+            return prevData.map(form => {
+                if (form === currentForm) {
+                    return {
+                        ...form,
+                        fieldsets: [...form.fieldsets.slice(0, form.fieldsets.length - 1)],
+                    }
+                }
+                return form;
+            })
+        })
+    }
 }

@@ -3,9 +3,9 @@ import { FormHeader } from './FormHeader'
 import { TextInput } from './TextInput';
 import { useState } from 'react';
 
-export function Form({ form, handleInputChange, handleAddFieldset }) {
+export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteFieldset }) {
     const [isCollapsed, setIsCollapsed] = useState(true)
-    const [fieldsetList, setFieldsetList] = useState(form.fieldsets)
+    // const [fieldsetList, setFieldsetList] = useState(form.fieldsets)
 
     return(
         <form className="form" autoComplete='off'>
@@ -44,7 +44,7 @@ export function Form({ form, handleInputChange, handleAddFieldset }) {
             {
                 (!isCollapsed && form.fieldsets.length > 1) && (
                     <button className='default-btn delete-btn'
-                    onClick={handleDeleteFieldset}
+                    onClick={(e) => handleDeleteFieldset(e, form)}
                     >Delete {form.buttonText}</button>
                 )
             }
@@ -54,14 +54,5 @@ export function Form({ form, handleInputChange, handleAddFieldset }) {
     function handleToggle(e) {
         e.preventDefault();
         setIsCollapsed(!isCollapsed);
-    }
-
-    function handleDeleteFieldset(e) {
-        e.preventDefault();
-        if (fieldsetList.length > 1) {
-            const fieldsetListCopy = fieldsetList;
-            fieldsetListCopy.pop();
-            setFieldsetList([...fieldsetListCopy]);
-        }
     }
 }
