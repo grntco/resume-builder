@@ -19,7 +19,8 @@ export function MainContent( { data } ) {
                         <Card key={formIndex}>
                             <Form 
                                 data={updatedData} 
-                                formIndex={formIndex} 
+                                formIndex={formIndex}
+                                // form={updatedData(formIndex)} 
                                 handleInputChange={handleInputChange}
                                 handleAddFieldset={handleAddFieldset}
                             ></Form>
@@ -69,9 +70,14 @@ export function MainContent( { data } ) {
             if (currentForm.fieldsets.length < currentForm.fieldsetLimit) {
                 return prevData.map(form => {
                     if (form === currentForm) {
+                        const blankFieldset = form.fieldsets
+                            .slice(0, 1)
+                            .flat()
+                            .map(input => ({ ...input, value: "" }));
+
                         return {
                             ...form,
-                            fieldsets: [...form.fieldsets, form.fieldsets[0]]
+                            fieldsets: [...form.fieldsets, blankFieldset]
                         }
                     }
                     return form;
