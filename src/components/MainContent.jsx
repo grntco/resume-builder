@@ -154,7 +154,7 @@ export function MainContent() {
         })
     }
 
-    function handleTextAreaChange(e, currentForm, currentFieldset, currentTextArea) {
+    function handleTextAreaChange(e, currentForm, currentFieldset, responsibilityIndex) {
         e.preventDefault();
         setUpdatedData((prevData) => {
             return prevData.map(form => {
@@ -165,8 +165,8 @@ export function MainContent() {
                             if (fieldset === currentFieldset) {
                                 return fieldset.map(input => {
                                     if (input.label === "Responsibilities") {
-                                        return {...input, responsibilities: input.responsibilities.map(responsibility => {
-                                            if (responsibility === currentTextArea) {
+                                        return {...input, responsibilities: input.responsibilities.map((responsibility, i) => {
+                                            if (i === responsibilityIndex) {
                                                 responsibility = e.target.value;
                                             }
                                             return responsibility;

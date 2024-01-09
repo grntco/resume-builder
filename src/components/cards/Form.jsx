@@ -37,7 +37,7 @@ export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteF
                                                     {
                                                         input.responsibilities.map((responsibility, i) => {
                                                             return (
-                                                                <textarea key={i} name="" id="" className="textarea" onChange={(e) => handleTextAreaChange(e, form, fieldset, responsibility)}></textarea>
+                                                                <textarea key={i} name="" id="" className="textarea" onChange={(e) => handleTextAreaChange(e, form, fieldset, i)}></textarea>
                                                             )
                                                         })    
                                                     }
