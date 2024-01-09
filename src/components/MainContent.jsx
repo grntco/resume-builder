@@ -73,8 +73,12 @@ export function MainContent() {
                     const blankFieldset = form.fieldsets
                         .slice(0, 1)
                         .flat()
-                        .map(input => ({ ...input, value: "" }));
-
+                        .map(input => {
+                            if (input.label === "Responsibilities") {
+                                return {...input, responsibilities: [""]}
+                            }
+                            return { ...input, value: "" }
+                        });
                     return {
                         ...form,
                         fieldsets: [...form.fieldsets, blankFieldset]
