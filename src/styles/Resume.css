@@ -18,6 +18,10 @@
     gap: 4px;
 }
 
+.resume__section:first-child {
+    gap: 8px;
+}
+
 .resume__section-title {
     font-weight: 600;
 }

@@ -3,7 +3,7 @@ import { ResumeExperience } from './ResumeExperience'
 
 export function Resume({ data }) {
     return (
-        <div className="resume">
+        <div className="resume" id="resume">
             <div className="resume__section">
                 <h2 className="resume__name">{data[0].fieldsets[0][0].value}</h2>
                 <ul className="resume__contact-info-container">

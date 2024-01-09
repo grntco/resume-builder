@@ -41,7 +41,6 @@ export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteF
                                             handleTextAreaChange={handleTextAreaChange}
                                             handleAddResponsibility={handleAddResponsibility}
                                             handleDeleteResponsibility={handleDeleteResponsibility}
-                                            // placeholder={input.responsibilities}
                                         />
                                     }
                                 })}

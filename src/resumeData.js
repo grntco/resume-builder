@@ -4,19 +4,19 @@ export const resumeData = [
         fieldsets: [
             [{
                 label: "Full Name", 
-                value: "",
+                value: "John Doe",
             },      
             {
                 label: "Email", 
-                value: "",
+                value: "johndoe@example.com",
             },      
             {
                 label: "Phone Number", 
-                value: "",
+                value: "(999) 999-9999",
             },      
             {
                 label: "Location", 
-                value: "",
+                value: "New York City, NY",
             }] 
         ]
     },
@@ -27,29 +27,29 @@ export const resumeData = [
         fieldsets: [
             [{
                 label: "Company", 
-                value: "",
+                value: "Amazon",
             },      
             {
                 label: "Position", 
-                value: "",
+                value: "Web Developer",
             },      
             {
                 label: "Location", 
-                value: "",
+                value: "Remote",
             },      
             {
                 label: "Start Date", 
-                value: "",
+                value: "Jan 2024",
             },   
             {
                 label: "End Date", 
-                value: "",
+                value: "Present",
             },
             {
                 label: "Responsibilities",
                 responsibilitiesLimit: 5,
                 responsibilities: [
-                    "",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                 ]
             }]   
         ]
@@ -61,29 +61,29 @@ export const resumeData = [
         fieldsets: [
             [{
                 label: "University", 
-                value: "",
+                value: "Example University",
             },      
             {
                 label: "Degree", 
-                value: "",
+                value: "Computer Science",
             },      
             {
                 label: "Location", 
-                value: "",
+                value: "New York City, NY",
             },      
             {
                 label: "Start Date", 
-                value: "",
+                value: "Aug 2019",
             },   
             {
                 label: "End Date", 
-                value: "",
+                value: "May 2023",
             },
             {
                 label: "Responsibilities",
                 responsibilitiesLimit: 5,
                 responsibilities: [
-                    "",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                 ]
             }]     
         ]
@@ -95,7 +95,15 @@ export const resumeData = [
         fieldsets: [
             [{
                 label: "Skill", 
-                value: "",
+                value: "Javascript",
+            }],
+            [{
+                label: "Skill", 
+                value: "React",
+            }],
+            [{
+                label: "Skill", 
+                value: "HTML/CSS",
             }]
         ]
     }
