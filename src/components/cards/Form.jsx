@@ -5,7 +5,6 @@ import { useState } from 'react';
 
 export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteFieldset, handleAddResponsibility, handleDeleteResponsibility, handleTextAreaChange }) {
     const [isCollapsed, setIsCollapsed] = useState(true)
-    // const [fieldsetList, setFieldsetList] = useState(form.fieldsets)
 
     return(
         <form className="form" autoComplete='off'>
@@ -37,13 +36,27 @@ export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteF
                                                     {
                                                         input.responsibilities.map((responsibility, i) => {
                                                             return (
-                                                                <textarea key={i} name="" id="" className="textarea" onChange={(e) => handleTextAreaChange(e, form, fieldset, i)}></textarea>
+                                                                <textarea
+                                                                    key={i}
+                                                                    name=""
+                                                                    id=""
+                                                                    className="textarea"
+                                                                    onChange={(e) => handleTextAreaChange(e, form, fieldset, i)}
+                                                                />
                                                             )
                                                         })    
                                                     }
                                                 </div>
-                                                <button className="default-btn add-btn" onClick={(e) => handleAddResponsibility(e, form, fieldset)}>Add Responsibilities</button>
-                                                <button className="default-btn delete-btn" onClick={(e) => handleDeleteResponsibility(e, form ,fieldset)}>Delete Responsibilities</button>
+                                                <button 
+                                                    className="default-btn add-btn"
+                                                    onClick={(e) => handleAddResponsibility(e, form, fieldset)}
+                                                    disabled={input.responsibilities.length >= input.responsibilitiesLimit}
+                                                >Add Responsibilities (max: {input.responsibilitiesLimit})</button>
+                                                {
+                                                    (input.responsibilities.length > 1) && (
+                                                        <button className="default-btn delete-btn" onClick={(e) => handleDeleteResponsibility(e, form ,fieldset)}>Delete Responsibilities</button>
+                                                    )
+                                                }
                                             </li>
                                         )
                                     }
@@ -54,14 +67,6 @@ export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteF
                     })
                 )
             }
-            {/* {
-                !isCollapsed && (
-                    console.log(
-                        form.fieldsets.filter(fieldset => fieldset.label === "Responsibilities")
-                        .responsibilities
-                    )
-                )
-            } */}
             {
                 (!isCollapsed && form.fieldsetLimit > 1) && (
                     <button className='default-btn add-btn'

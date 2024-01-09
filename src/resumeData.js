@@ -11,7 +11,7 @@ export const resumeData = [
                 value: "",
             },      
             {
-                label: "", 
+                label: "Phone Number", 
                 value: "",
             },      
             {
@@ -47,6 +47,7 @@ export const resumeData = [
             },
             {
                 label: "Responsibilities",
+                responsibilitiesLimit: 5,
                 responsibilities: [
                     "",
                 ]
