@@ -42,10 +42,8 @@ export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteF
                                                         })    
                                                     }
                                                 </div>
-                                                {/* <div className="btn-container"> */}
-                                                    <button className="default-btn add-btn" onClick={(e) => handleAddResponsibility(e, form, fieldset)}>Add Responsibilities</button>
-                                                    <button className="default-btn delete-btn" onClick={(e) => handleDeleteResponsibility(e, form ,fieldset)}>Delete Responsibilities</button>
-                                                {/* </div> */}
+                                                <button className="default-btn add-btn" onClick={(e) => handleAddResponsibility(e, form, fieldset)}>Add Responsibilities</button>
+                                                <button className="default-btn delete-btn" onClick={(e) => handleDeleteResponsibility(e, form ,fieldset)}>Delete Responsibilities</button>
                                             </li>
                                         )
                                     }

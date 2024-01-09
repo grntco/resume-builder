@@ -4,19 +4,19 @@ export const resumeData = [
         fieldsets: [
             [{
                 label: "Full Name", 
-                value: "John Doe",
+                value: "",
             },      
             {
                 label: "Email", 
-                value: "johndoe@example.com",
+                value: "",
             },      
             {
-                label: "Phone Number", 
-                value: "(999) 999–9999",
+                label: "", 
+                value: "",
             },      
             {
                 label: "Location", 
-                value: "New York City, NY",
+                value: "",
             }] 
         ]
     },
@@ -27,23 +27,23 @@ export const resumeData = [
         fieldsets: [
             [{
                 label: "Company", 
-                value: "[Company]",
+                value: "",
             },      
             {
                 label: "Position", 
-                value: "[Position]",
+                value: "",
             },      
             {
                 label: "Location", 
-                value: "[Location]",
+                value: "",
             },      
             {
                 label: "Start Date", 
-                value: "[Start Date]",
+                value: "",
             },   
             {
                 label: "End Date", 
-                value: "[End Date]",
+                value: "",
             },
             {
                 label: "Responsibilities",
