@@ -1,6 +1,6 @@
 import '../../styles/Form.css'
 
-export function TextInput({ label, form, fieldsetIndex, inputIndex, handleInputChange }) {
+export function TextInput({ label, form, fieldsetIndex, inputIndex, handleInputChange, value }) {
     const id = `${form.title}-${label}-${fieldsetIndex}-${inputIndex}`
     return (
         <li className="input-item">
@@ -11,6 +11,7 @@ export function TextInput({ label, form, fieldsetIndex, inputIndex, handleInputC
                 type="text"
                 id={id}
                 className="input"
+                value={value}
                 onChange={(e) => { handleInputChange(e, form, fieldsetIndex, inputIndex) }} 
             />
         </li>

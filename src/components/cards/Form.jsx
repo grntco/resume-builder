@@ -29,6 +29,7 @@ export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteF
                                             fieldsetIndex={fieldsetIndex}
                                             inputIndex={inputIndex}
                                             handleInputChange={handleInputChange}
+                                            value={input.value}
                                         />
                                     } else {
                                         return <ResponsibilitiesContainer
@@ -40,6 +41,7 @@ export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteF
                                             handleTextAreaChange={handleTextAreaChange}
                                             handleAddResponsibility={handleAddResponsibility}
                                             handleDeleteResponsibility={handleDeleteResponsibility}
+                                            // placeholder={input.responsibilities}
                                         />
                                     }
                                 })}

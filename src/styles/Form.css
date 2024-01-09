@@ -29,7 +29,7 @@
     background-color: var(--primary-bg-color);
 }
 
-.toggle-btn:hover {
+.toggle-btn:hover, .toggle-btn:focus {
     background-color: var(--btn-bg-color-hover);
 }
 
