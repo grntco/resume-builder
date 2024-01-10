@@ -1,23 +1,21 @@
 export function ResponsibilitiesContainer({form, fieldset, input, inputIndex, handleTextAreaChange, handleAddResponsibility, handleDeleteResponsibility}) {
     return (
-        <li key={inputIndex} className="responsibilities-container">
+        <li key={inputIndex} className="input-item textarea-item">
             <label htmlFor="" className="input-label">{input.label}</label>    
-            <div className="textarea-container">
-                {
-                    input.responsibilities.map((responsibility, i) => {
-                        return (
-                            <textarea
-                                key={i}
-                                name=""
-                                id=""
-                                className="textarea"
-                                onChange={(e) => handleTextAreaChange(e, form, fieldset, i)}
-                                value={responsibility}
-                            />
-                        )
-                    })    
-                }
-            </div>
+            {
+                input.responsibilities.map((responsibility, i) => {
+                    return (
+                        <textarea
+                            key={i}
+                            name=""
+                            id=""
+                            className="textarea"
+                            onChange={(e) => handleTextAreaChange(e, form, fieldset, i)}
+                            value={responsibility}
+                        />
+                    )
+                })    
+            }
             <button 
                 className="default-btn add-btn"
                 onClick={(e) => handleAddResponsibility(e, form, fieldset)}

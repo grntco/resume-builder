@@ -1,23 +1,20 @@
-.form-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .form {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.form-title {
+/* Form Header */
+.form__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form__header-title {
     font-size: 1.3rem;
     font-weight: 600;
     letter-spacing: 0.025rem;
-}
-
-.form__fieldset {
-    margin-bottom: 8px;
 }
 
 .toggle-btn {
@@ -43,6 +40,11 @@
     transform: rotate(180deg);
 }
 
+/* Form Fieldset */
+.form__fieldset {
+    margin-bottom: 8px;
+}
+
 .add-btn {
     background-color: var(--add-btn-bg-color);
     color: var(--add-btn-txt-color);
@@ -50,12 +52,6 @@
 
 .add-btn:hover {
     background-color: var(--add-btn-bg-color-hover);
-}
-
-.add-btn:disabled {
-    cursor: default;   
-    background-color: var(--btn-bg-color);
-    color: var(--secondary-txt-color);
 }
 
 .delete-btn {
@@ -67,13 +63,6 @@
     background-color: var(--delete-btn-bg-color-hover);
 }
 
-.form__inputs-container {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
 .input-item {
     display: flex;
     flex-direction: column;
@@ -82,28 +71,31 @@
 .input-label {
     font-size: 0.8rem;
     font-weight: 600;
-    /* text-transform: uppercase; */
-}
-
-.input, .textarea {
-    font-family: var(--font-family);
-    font-weight: 500;
-    border: 2px solid var(--secondary-bg-color);
-    outline: none;
-    background-color: var(--secondary-bg-color);
-    padding: 8px 4px;
-    border-radius: 4px;
-    color: var(--secondary-txt-color);
-    transition: transform 0.025s ease-out;
 }
 
 .input {
     height: 1.8rem;
 }
 
+.textarea-item > :not(:first-child, :last-child) {
+    margin-bottom: 8px;
+}
+
 .textarea {
-    min-height: 3rem;
+    min-height: 3.6rem;
     resize: vertical;
+}
+
+.input, .textarea {
+    padding: 8px 4px;
+    border-radius: 4px;
+    outline: none;
+    border: 2px solid var(--secondary-bg-color);
+    font-family: var(--font-family);
+    font-weight: 500;
+    background-color: var(--secondary-bg-color);
+    color: var(--secondary-txt-color);
+    transition: transform 0.025s ease-out;
 }
 
 .input:focus, .textarea:focus {
@@ -113,17 +105,4 @@
     -moz-box-shadow: 2px 2px 12px 4px rgba(56,189,248,0.2);
     box-shadow: 2px 2px 12px 4px rgba(56,189,248,0.2);
     transform: scale(1.025);
-}
-
-.responsibilities-container {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.textarea-container {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
 }

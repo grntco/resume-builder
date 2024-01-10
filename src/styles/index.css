@@ -4,8 +4,6 @@
   --secondary-bg-color: #f4f4f5; /* 100 */
   --primary-txt-color: #18181b; /* 900 */
   --secondary-txt-color: #71717a; /* 500 */
-  /* --accent-color: #; 500 */
-
   --input-focus-color: #38bdf8;
   --btn-bg-color: #d4d4d8;
   --btn-bg-color-hover: #e4e4e7; 
@@ -45,6 +43,12 @@ button:hover {
   cursor: pointer;
 }
 
+button:disabled, button:disabled:hover {
+  cursor: default;   
+  background-color: var(--btn-bg-color);
+  color: var(--secondary-txt-color);
+}
+
 /* button:focus {
   border: 2px solid var(--input-focus-color);
   color: var(--primary-txt-color);
@@ -70,13 +74,4 @@ button:hover {
 
 .icon {
   height: 1.4rem;
-}
-
-/* move this proly */
-.preview-container {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }

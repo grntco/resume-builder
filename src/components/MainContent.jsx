@@ -33,7 +33,7 @@ export function MainContent() {
                     })
                 }
             </div>
-            <div className="preview-container">
+            <div className="resume-container">
                 <Resume data={updatedData}></Resume>
             </div>   
         </section>
