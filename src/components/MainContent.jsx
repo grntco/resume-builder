@@ -1,10 +1,8 @@
-import { Card } from './cards/Card';
-import { Form } from './cards/Form';
-import { Toolbar } from './cards/Toolbar';
-import { Resume } from './Resume';
+import { Card } from './Card';
+import { Form } from './form/Form';
+import { Resume } from './resume/Resume';
 import { useState } from 'react';
 import { resumeData } from '../resumeData';
-
 
 export function MainContent() {
     const [updatedData, setUpdatedData] = useState(resumeData);
@@ -12,7 +10,6 @@ export function MainContent() {
     return ( 
         <section className="main-content">
             <div className="cards-container">
-                <Card><Toolbar /></Card>
                 {
                     updatedData.map((form, formIndex) => {
                     return (

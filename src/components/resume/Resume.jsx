@@ -1,4 +1,4 @@
-import '../styles/Resume.css'
+import '../../styles/Resume.css'
 import { ResumeExperience } from './ResumeExperience'
 
 export function Resume({ data }) {

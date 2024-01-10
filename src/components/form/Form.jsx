@@ -1,9 +1,8 @@
 import '../../styles/Form.css'
-import { FormHeader } from './FormHeader'
+import { FormHeader } from './FormHeader';
 import { TextInput } from './TextInput';
 import { ResponsibilitiesContainer } from './ResponsibilitiesContainer';
 import { useState } from 'react';
-
 
 export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteFieldset, handleAddResponsibility, handleDeleteResponsibility, handleTextAreaChange }) {
     const [isCollapsed, setIsCollapsed] = useState(true)
