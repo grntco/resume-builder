@@ -10,6 +10,7 @@
     -moz-box-shadow: 2px 2px 12px 4px rgba(240,240,240,1);
     box-shadow: 2px 2px 12px 4px rgba(240,240,240,1);
     line-height: 1.2rem;
+    font-size: 1rem;
 }
 
 .resume__section {
@@ -33,7 +34,7 @@
 }
 
 .resume__name {
-    font-size: 2rem;
+    font-size: 2em;
 }
 
 /* Personal Details */
@@ -61,7 +62,7 @@
 
 
 .resume__experience-container {
-    font-size: 0.9rem;
+    font-size: 0.9em;
 }
 
 .resume__details-container {
@@ -91,13 +92,29 @@
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
-    font-size: 0.8rem;
+    font-size: 0.8em;
     list-style: none;
 }
 
 .resume__skill-item {
+    padding: 0.2em 0.5em;
     padding: 4px 8px;
     border-radius: 24px;
     background-color: var(--secondary-bg-color);
 }
 
+@media (max-width: 1200px) {
+    .resume {
+        height: calc(60px * 11);
+        width: calc(60px * 8.5);
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 572px) {
+    .resume {
+        height: calc(50px * 11);
+        width: calc(50px * 8.5);
+        font-size: 0.6rem;
+    }
+}
