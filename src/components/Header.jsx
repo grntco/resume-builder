@@ -1,7 +1,8 @@
 import '../styles/Header.css';
 import { DocumentCheckIcon } from '@heroicons/react/24/outline';
 import { ArrowDownTrayIcon } from "@heroicons/react/24/outline"
-import * as html2pdf from "html2pdf.js";
+import jsPDF from 'jspdf';
+
 
 export function Header() {
     return(
@@ -14,20 +15,19 @@ export function Header() {
                 className="default-btn add-btn header__download-btn"
                 title="Download as PDF"
                 onClick={handlePDFDownload}
-            >{window.innerWidth > 946 && "Download as PDF"}<ArrowDownTrayIcon className="icon"/></button>
+            >Download as PDF<ArrowDownTrayIcon className="icon"/></button>
         </header>
     )
 
     function handlePDFDownload() {
-        const resume = document.getElementById('resume')
-        // const options = {
-        //     // margin: 1,
-        //     filename: 'resume.pdf',
-        //     image:        { type: 'jpeg', quality: 0.98 },
-        //     html2canvas:  { scale: 3 },
-        //     jsPDF:        { format: 'letter' }
-        // }
+        const pdf = new jsPDF();
+        const resume = document.getElementById('resume');
 
-        html2pdf(resume)
+        pdf.html(resume, {
+            callback: function() {
+              pdf.save("resume.pdf")
+            },
+            html2canvas: { scale: 0.31 },
+         });
     }
 }
