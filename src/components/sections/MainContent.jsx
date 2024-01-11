@@ -1,4 +1,4 @@
-import { Card } from '../Card';
+import { Card } from '../form/Card';
 import { Form } from '../form/Form';
 import { Resume } from '../resume/Resume';
 import { useState } from 'react';
