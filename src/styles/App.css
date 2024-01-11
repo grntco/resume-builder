@@ -65,13 +65,3 @@ button:disabled, button:disabled:hover {
   justify-content: center;
   padding: 24px;
 }
-
-/* move media to sep file */
-
-@media (max-width: 946px) {
-  .main-content {
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-  }
-}

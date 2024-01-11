@@ -1,0 +1,23 @@
+@media (max-width: 946px) {
+    .main-content {
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+    }
+  }
+
+@media (max-width: 1200px) {
+    .resume {
+        height: calc(60px * 11);
+        width: calc(60px * 8.5);
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 572px) {
+    .resume {
+        height: calc(50px * 11);
+        width: calc(50px * 8.5);
+        font-size: 0.6rem;
+    }
+}

@@ -1,4 +1,5 @@
 import '../../styles/Resume.css'
+import '../../styles/mediaQueries.css'
 import { ResumeExperience } from './ResumeExperience'
 
 export function Resume({ data }) {
@@ -6,10 +7,10 @@ export function Resume({ data }) {
         <div className="resume" id="resume">
             <div className="resume__section">
                 <h2 className="resume__name">{data[0].fieldsets[0][0].value}</h2>
-                <ul className="resume__contact-info-container">
-                    <li className="email">{data[0].fieldsets[0][1].value}</li>
-                    <li className="phone-number">{data[0].fieldsets[0][2].value}</li>
-                    <li className="location">{data[0].fieldsets[0][3].value}</li>
+                <ul className="resume__contact-info">
+                    <li>{data[0].fieldsets[0][1].value}</li>
+                    <li>{data[0].fieldsets[0][2].value}</li>
+                    <li>{data[0].fieldsets[0][3].value}</li>
                 </ul>
             </div>
             <div className="resume__section">
