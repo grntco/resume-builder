@@ -5,7 +5,7 @@ import { ResponsibilitiesContainer } from './ResponsibilitiesContainer';
 import { useState } from 'react';
 
 export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteFieldset, handleAddResponsibility, handleDeleteResponsibility, handleTextAreaChange }) {
-    const [isCollapsed, setIsCollapsed] = useState(form.title !== 'Personal Details')
+    const [isCollapsed, setIsCollapsed] = useState(form.title !== 'Personal Details');
 
     return(
         <form className="form" autoComplete='off'>

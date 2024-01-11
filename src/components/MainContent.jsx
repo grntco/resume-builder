@@ -27,7 +27,7 @@ export function MainContent() {
                                 handleTextAreaChange={handleTextAreaChange}
                             ></Form>
                         </Card>
-                    )
+                        )
                     })
                 }
             </div>
@@ -38,6 +38,7 @@ export function MainContent() {
     )
 
     function handleInputChange(e, currentForm, fieldsetIndex, inputIndex) {
+        e.preventDefault();
         setUpdatedData((prevData) => {
             return prevData.map(form => {
                 if (form === currentForm) {

@@ -11,6 +11,7 @@ export function ResponsibilitiesContainer({form, fieldset, input, inputIndex, ha
                             id=""
                             className="textarea"
                             onChange={(e) => handleTextAreaChange(e, form, fieldset, i)}
+                            placeholder={responsibility}
                             value={responsibility}
                         />
                     )

@@ -1,8 +1,13 @@
 import '../../styles/Resume.css'
 import '../../styles/mediaQueries.css'
 import { ResumeExperience } from './ResumeExperience'
+// import { useState } from 'react'
 
 export function Resume({ data }) {
+    // const [ firstLoad, setFirstLoad ] = useState(true)
+
+    // const resume
+    
     return (
         <div className="resume" id="resume">
             <div className="resume__section">
