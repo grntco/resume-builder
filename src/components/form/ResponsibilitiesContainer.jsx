@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 export function ResponsibilitiesContainer({form, fieldset, input, inputIndex, handleTextAreaChange, handleAddResponsibility, handleDeleteResponsibility}) {
+    const [ receivedInput, setReceivedInput ] = useState(false)
+
     return (
         <li key={inputIndex} className="input-item textarea-item">
             <label htmlFor="" className="input-label">{input.label}</label>    
@@ -10,9 +14,9 @@ export function ResponsibilitiesContainer({form, fieldset, input, inputIndex, ha
                             name=""
                             id=""
                             className="textarea"
-                            onChange={(e) => handleTextAreaChange(e, form, fieldset, i)}
+                            onChange={(e) => {handleTextAreaChange(e, form, fieldset, i); setReceivedInput(true)}}
                             placeholder={responsibility}
-                            value={responsibility}
+                            value={receivedInput ? responsibility : ""}
                         />
                     )
                 })    

@@ -18,7 +18,8 @@ export function MainContent() {
                             <Form 
                                 data={updatedData} 
                                 formIndex={formIndex}
-                                form={form} 
+                                form={form}
+                                // handlers={handlers}
                                 handleInputChange={handleInputChange}
                                 handleAddFieldset={handleAddFieldset}
                                 handleDeleteFieldset={handleDeleteFieldset}
