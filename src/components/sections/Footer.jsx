@@ -1,5 +1,5 @@
-import '../styles/Footer.css'
-import ghIcon from '../assets/icons/github-mark.svg'
+import '../../styles/Footer.css'
+import ghIcon from '../../assets/icons/github-mark.svg'
 
 export function Footer() {
     return(

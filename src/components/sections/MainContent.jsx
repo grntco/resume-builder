@@ -1,9 +1,9 @@
-import { Card } from './Card';
-import { Form } from './form/Form';
-import { Resume } from './resume/Resume';
+import { Card } from '../Card';
+import { Form } from '../form/Form';
+import { Resume } from '../resume/Resume';
 import { useState } from 'react';
-import { resumeData } from '../resumeData';
-import '../styles/mediaQueries.css'
+import { resumeData } from '../../resumeData';
+import '../../styles/mediaQueries.css'
 
 export function MainContent() {
     const [updatedData, setUpdatedData] = useState(resumeData);
