@@ -1,5 +1,5 @@
 import '../../styles/Header.css';
-import { DocumentCheckIcon } from '@heroicons/react/24/outline';
+import resumeIcon from "../../assets/icons/curriculum-resume.svg"
 import { ArrowDownTrayIcon } from "@heroicons/react/24/outline"
 import jsPDF from 'jspdf';
 
@@ -7,7 +7,7 @@ export function Header() {
     return(
         <header className="header">
             <div className="header__logo">
-                <DocumentCheckIcon className="header__logo-icon"/>
+                <img src={resumeIcon} alt="Resume Builder logo icon" className='header__logo-icon' />
                 <h1 className="header__logo-text">Resume Builder</h1>
             </div>
             <button
