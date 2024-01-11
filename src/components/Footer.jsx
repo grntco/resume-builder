@@ -6,7 +6,7 @@ export function Footer() {
         <footer className="footer">
             <a href="https://github.com/grntco" target="_blank" rel="noreferrer" className="footer__link">
             Made by grntco
-            <img src={ghIcon} className='github-icon'></img>
+            <img src={ghIcon} className="icon"></img>
             </a>
         </footer>
     )

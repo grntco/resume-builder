@@ -14,7 +14,7 @@ export function Header() {
                 className="default-btn add-btn header__download-btn"
                 title="Download as PDF"
                 onClick={handlePDFDownload}
-            >Download as PDF <ArrowDownTrayIcon className="icon"/></button>
+            >{window.innerWidth > 946 && "Download as PDF"}<ArrowDownTrayIcon className="icon"/></button>
         </header>
     )
 

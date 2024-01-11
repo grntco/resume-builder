@@ -21,7 +21,3 @@
 .footer__link:hover {
   text-decoration: underline;
 }
-
-.footer .github-icon {
-  height: 1.4rem;
-}
