@@ -12,34 +12,33 @@ export function Form({ form, handleUpdateForm }) {
             <FormHeader
                 title={form.title}
                 isCollapsed={isCollapsed}
-                onClick={handleToggle}
+                handleToggle={handleToggle}
             ></FormHeader>
             { 
                 !isCollapsed && (
-                    form.fieldsets.map((fieldset, fieldsetIndex) => {
+                    form.fieldsets.map((fieldset, i) => {
                         return (
-                            <ul className="form__fieldset" key={fieldsetIndex}>
-                                {fieldset.map((input, inputIndex) => {
+                            <ul key={i} className="form__fieldset">
+                                {fieldset.map((input, j) => {
                                     if (input.label !== "Responsibilities") {
                                         return <TextInput
-                                            key={inputIndex} 
+                                            key={j} 
                                             label={input.label}
                                             form={form}
                                             fieldset={fieldset}
-                                            inputIndex={inputIndex}
+                                            inputIndex={j}
                                             handleUpdateForm={handleUpdateForm}
                                             value={input.value}
                                         />
-                                    } else {
-                                        return <ResponsibilitiesContainer
-                                            key={inputIndex} 
-                                            form={form}
-                                            fieldset={fieldset}
-                                            input={input}
-                                            inputIndex={inputIndex}
-                                            handleUpdateForm={handleUpdateForm}
-                                        />
                                     }
+                                    return <ResponsibilitiesContainer
+                                        key={j} 
+                                        form={form}
+                                        fieldset={fieldset}
+                                        input={input}
+                                        inputIndex={j}
+                                        handleUpdateForm={handleUpdateForm}
+                                    />
                                 })}
                             </ul>
                         )

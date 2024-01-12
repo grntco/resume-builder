@@ -16,11 +16,8 @@ export function MainContent() {
                     return (
                         <Card key={formIndex}>
                             <Form 
-                                data={updatedData} 
-                                formIndex={formIndex}
                                 form={form}
                                 handleUpdateForm={handleUpdateForm}
-                                // handleInputChange={handleInputChange}
                             ></Form>
                         </Card>
                         )
