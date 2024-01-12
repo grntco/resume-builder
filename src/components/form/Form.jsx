@@ -5,17 +5,17 @@ import { ResponsibilitiesContainer } from './ResponsibilitiesContainer';
 import { useState } from 'react';
 
 export function Form({ form, handleUpdateForm }) {
-    const [isCollapsed, setIsCollapsed] = useState(form.title !== 'Personal Details');
+    const [isActive, setIsActive] = useState(form.title === 'Personal Details');
 
     return(
         <form className="form" autoComplete='off'>
             <FormHeader
                 title={form.title}
-                isCollapsed={isCollapsed}
+                isActive={isActive}
                 handleToggle={handleToggle}
             ></FormHeader>
             { 
-                !isCollapsed && (
+                isActive && (
                     form.fieldsets.map((fieldset, i) => {
                         return (
                             <ul key={i} className="form__fieldset">
@@ -46,7 +46,7 @@ export function Form({ form, handleUpdateForm }) {
                 )
             }
             {
-                (!isCollapsed && form.fieldsetLimit > 1) && (
+                (isActive && form.fieldsetLimit > 1) && (
                     <button className='default-btn add-btn'
                         onClick={(e) => handleUpdateForm(e, form, addFieldset)}
                         disabled={form.fieldsets.length >= form.fieldsetLimit}
@@ -54,7 +54,7 @@ export function Form({ form, handleUpdateForm }) {
                 )
             }
             {
-                (!isCollapsed && form.fieldsets.length > 1) && (
+                (isActive && form.fieldsets.length > 1) && (
                     <button className='default-btn delete-btn'
                     onClick={(e) => handleUpdateForm(e, form, deleteFieldset)}
                     >Delete {form.buttonText}</button>
@@ -65,7 +65,7 @@ export function Form({ form, handleUpdateForm }) {
 
     function handleToggle(e) {
         e.preventDefault();
-        setIsCollapsed(!isCollapsed);
+        setIsActive(!isActive);
     }
 
     function addFieldset(form) {
