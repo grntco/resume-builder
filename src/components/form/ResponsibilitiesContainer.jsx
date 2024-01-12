@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function ResponsibilitiesContainer({form, fieldset, input, inputIndex, handleInputChange, handleUpdateResponsibilities}) {
+export function ResponsibilitiesContainer({form, fieldset, input, inputIndex, handleUpdateForm }) {
     const [ receivedInput, setReceivedInput ] = useState(false)
 
     return (
@@ -14,7 +14,7 @@ export function ResponsibilitiesContainer({form, fieldset, input, inputIndex, ha
                             name=""
                             id=""
                             className="textarea"
-                            onChange={(e) => {handleInputChange(e, form, fieldset, i, updateTextAreaText); setReceivedInput(true)}}
+                            onChange={(e) => { handleUpdateForm(e, form, updateTextAreaText, fieldset, i,); setReceivedInput(true) }}
                             placeholder={responsibility}
                             value={receivedInput ? responsibility : ""}
                         />
@@ -23,18 +23,45 @@ export function ResponsibilitiesContainer({form, fieldset, input, inputIndex, ha
             }
             <button 
                 className="default-btn add-btn"
-                onClick={(e) => handleUpdateResponsibilities(e, form, fieldset, addResponsibility)}
+                onClick={(e) => handleUpdateForm(e, form, addResponsibility, fieldset)}
                 disabled={input.responsibilities.length >= input.responsibilitiesLimit}
             >Add Responsibilities (max: {input.responsibilitiesLimit})</button>
             {
                 (input.responsibilities.length > 1) && (
                     <button
                         className="default-btn delete-btn"
-                        onClick={(e) => handleUpdateResponsibilities(e, form, fieldset, deleteResponsibility)}>Delete Responsibilities</button>
+                        onClick={(e) => handleUpdateForm(e, form, deleteResponsibility, fieldset)}>Delete Responsibilities</button>
                 )
             }
         </li>
     )
+
+    function updateTextAreaText(form, currentFieldset, responsibilityIndex, e) {
+        return {
+            ...form,
+            fieldsets: form.fieldsets.map(fieldset => {
+                if (fieldset === currentFieldset) {
+                    // _______
+                    return fieldset.map(input => {
+                        if (input.label === "Responsibilities") {
+                            return {...input, responsibilities: input.responsibilities.map((responsibility, i) => {
+                                if (i === responsibilityIndex) {
+                                    responsibility = e.target.value;
+                                }
+                                return responsibility;
+                            })}
+                        } 
+                        return input;
+                    })
+                }
+                return fieldset;
+            }),
+        };
+    }
+
+    // ______________________
+
+
 
     function addResponsibility(form, currentFieldset) {
         return {
@@ -68,19 +95,5 @@ export function ResponsibilitiesContainer({form, fieldset, input, inputIndex, ha
                 return fieldset;
             })
         }
-    }
-
-    function updateTextAreaText(e, fieldset, responsibilityIndex) {
-        return fieldset.map(input => {
-            if (input.label === "Responsibilities") {
-                return {...input, responsibilities: input.responsibilities.map((responsibility, i) => {
-                    if (i === responsibilityIndex) {
-                        responsibility = e.target.value;
-                    }
-                    return responsibility;
-                })}
-            } 
-            return input;
-        })
     }
 }

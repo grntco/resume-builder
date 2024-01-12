@@ -19,10 +19,8 @@ export function MainContent() {
                                 data={updatedData} 
                                 formIndex={formIndex}
                                 form={form}
-                                handleInputChange={handleInputChange}
-                                handleUpdateFieldsets={handleUpdateFieldsets}
-                                handleUpdateResponsibilities={handleUpdateResponsibilities}
-                                // handleTextAreaChange={handleTextAreaChange}
+                                handleUpdateForm={handleUpdateForm}
+                                // handleInputChange={handleInputChange}
                             ></Form>
                         </Card>
                         )
@@ -35,94 +33,15 @@ export function MainContent() {
         </section>
     )
 
-    function handleUpdateFieldsets(e, currentForm, updateFunc) {
+    function handleUpdateForm(e, currentForm, updateFunc, currentFieldset, inputIndex) {
         e.preventDefault();
         setUpdatedData((prevData) => {
             return prevData.map(form => {
                 if (form === currentForm) {
-                    return updateFunc(form);
+                   return updateFunc(form, currentFieldset, inputIndex, e);
                 }
                 return form;
             })
         })
     }
-
-    function handleUpdateResponsibilities(e, currentForm, currentFieldset, updateFunc) {
-        e.preventDefault();
-        setUpdatedData((prevData) => {
-            return prevData.map(form => {
-                if (form === currentForm) {
-                   return updateFunc(form, currentFieldset)
-                }
-                return form;
-            })
-        })
-    }
-
-    function handleInputChange(e, currentForm, currentFieldset, inputIndex, updateFunc) {
-        e.preventDefault();
-        setUpdatedData((prevData) => {
-            return prevData.map(form => {
-                if (form === currentForm) {
-                    return {
-                        ...form,
-                        fieldsets: form.fieldsets.map(fieldset => {
-                            if (fieldset === currentFieldset) {
-                                return updateFunc(e, currentFieldset, inputIndex)
-                            }
-                            return fieldset;
-                        }),
-                    };
-                }
-                return form;
-            })
-        })
-    }
-
-    // function handleInputChange(e, currentForm, currentFieldset, updateFunc, index) {
-    //     e.preventDefault();
-    //     setUpdatedData((prevData) => {
-    //         return prevData.map(form => {
-    //             if (form === currentForm) {
-    //                 return {
-    //                     ...form,
-    //                     fieldsets: form.fieldsets.map(fieldset => {
-    //                         if (fieldset === currentFieldset) {
-    //                             return [
-    //                                 ...fieldset.slice(0, inputIndex),
-    //                                 {
-    //                                     ...fieldset[inputIndex],
-    //                                     value: e.target.value,
-    //                                 },
-    //                                 ...fieldset.slice(inputIndex + 1),
-    //                             ];
-    //                         }
-    //                         return fieldset;
-    //                     }),
-    //                 };
-    //             }
-    //             return form;
-    //         })
-    //     })
-    // }
-
-    // function handleTextAreaChange(e, currentForm, currentFieldset, responsibilityIndex) {
-    //     e.preventDefault();
-    //     setUpdatedData((prevData) => {
-    //         return prevData.map(form => {
-    //             if (form === currentForm) {
-    //                 return {
-    //                     ...form,
-    //                     fieldsets: form.fieldsets.map(fieldset => {
-    //                         if (fieldset === currentFieldset) {
- 
-    //                         }
-    //                         return fieldset;
-    //                     })
-    //                 }
-    //             }
-    //             return form;
-    //         })
-    //     })
-    // }
 }
