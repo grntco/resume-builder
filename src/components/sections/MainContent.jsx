@@ -22,7 +22,7 @@ export function MainContent() {
                                 handleInputChange={handleInputChange}
                                 handleUpdateFieldsets={handleUpdateFieldsets}
                                 handleUpdateResponsibilities={handleUpdateResponsibilities}
-                                handleTextAreaChange={handleTextAreaChange}
+                                // handleTextAreaChange={handleTextAreaChange}
                             ></Form>
                         </Card>
                         )
@@ -34,33 +34,6 @@ export function MainContent() {
             </div>   
         </section>
     )
-
-    function handleInputChange(e, currentForm, fieldsetIndex, inputIndex) {
-        e.preventDefault();
-        setUpdatedData((prevData) => {
-            return prevData.map(form => {
-                if (form === currentForm) {
-                    return {
-                        ...form,
-                        fieldsets: form.fieldsets.map((fieldset, j) => {
-                            if (fieldsetIndex === j) {
-                                return [
-                                    ...fieldset.slice(0, inputIndex),
-                                    {
-                                        ...fieldset[inputIndex],
-                                        value: e.target.value,
-                                    },
-                                    ...fieldset.slice(inputIndex + 1),
-                                ];
-                            }
-                            return fieldset;
-                        }),
-                    };
-                }
-                return form;
-            })
-        })
-    }
 
     function handleUpdateFieldsets(e, currentForm, updateFunc) {
         e.preventDefault();
@@ -86,7 +59,7 @@ export function MainContent() {
         })
     }
 
-    function handleTextAreaChange(e, currentForm, currentFieldset, responsibilityIndex) {
+    function handleInputChange(e, currentForm, currentFieldset, inputIndex, updateFunc) {
         e.preventDefault();
         setUpdatedData((prevData) => {
             return prevData.map(form => {
@@ -95,24 +68,61 @@ export function MainContent() {
                         ...form,
                         fieldsets: form.fieldsets.map(fieldset => {
                             if (fieldset === currentFieldset) {
-                                return fieldset.map(input => {
-                                    if (input.label === "Responsibilities") {
-                                        return {...input, responsibilities: input.responsibilities.map((responsibility, i) => {
-                                            if (i === responsibilityIndex) {
-                                                responsibility = e.target.value;
-                                            }
-                                            return responsibility;
-                                        })}
-                                    } 
-                                    return input;
-                                })
+                                return updateFunc(e, currentFieldset, inputIndex)
                             }
                             return fieldset;
-                        })
-                    }
+                        }),
+                    };
                 }
                 return form;
             })
         })
     }
+
+    // function handleInputChange(e, currentForm, currentFieldset, updateFunc, index) {
+    //     e.preventDefault();
+    //     setUpdatedData((prevData) => {
+    //         return prevData.map(form => {
+    //             if (form === currentForm) {
+    //                 return {
+    //                     ...form,
+    //                     fieldsets: form.fieldsets.map(fieldset => {
+    //                         if (fieldset === currentFieldset) {
+    //                             return [
+    //                                 ...fieldset.slice(0, inputIndex),
+    //                                 {
+    //                                     ...fieldset[inputIndex],
+    //                                     value: e.target.value,
+    //                                 },
+    //                                 ...fieldset.slice(inputIndex + 1),
+    //                             ];
+    //                         }
+    //                         return fieldset;
+    //                     }),
+    //                 };
+    //             }
+    //             return form;
+    //         })
+    //     })
+    // }
+
+    // function handleTextAreaChange(e, currentForm, currentFieldset, responsibilityIndex) {
+    //     e.preventDefault();
+    //     setUpdatedData((prevData) => {
+    //         return prevData.map(form => {
+    //             if (form === currentForm) {
+    //                 return {
+    //                     ...form,
+    //                     fieldsets: form.fieldsets.map(fieldset => {
+    //                         if (fieldset === currentFieldset) {
+ 
+    //                         }
+    //                         return fieldset;
+    //                     })
+    //                 }
+    //             }
+    //             return form;
+    //         })
+    //     })
+    // }
 }

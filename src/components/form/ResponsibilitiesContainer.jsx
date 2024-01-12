@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function ResponsibilitiesContainer({form, fieldset, input, inputIndex, handleTextAreaChange, handleUpdateResponsibilities}) {
+export function ResponsibilitiesContainer({form, fieldset, input, inputIndex, handleInputChange, handleUpdateResponsibilities}) {
     const [ receivedInput, setReceivedInput ] = useState(false)
 
     return (
@@ -14,7 +14,7 @@ export function ResponsibilitiesContainer({form, fieldset, input, inputIndex, ha
                             name=""
                             id=""
                             className="textarea"
-                            onChange={(e) => {handleTextAreaChange(e, form, fieldset, i); setReceivedInput(true)}}
+                            onChange={(e) => {handleInputChange(e, form, fieldset, i, updateTextAreaText); setReceivedInput(true)}}
                             placeholder={responsibility}
                             value={receivedInput ? responsibility : ""}
                         />
@@ -68,5 +68,19 @@ export function ResponsibilitiesContainer({form, fieldset, input, inputIndex, ha
                 return fieldset;
             })
         }
+    }
+
+    function updateTextAreaText(e, fieldset, responsibilityIndex) {
+        return fieldset.map(input => {
+            if (input.label === "Responsibilities") {
+                return {...input, responsibilities: input.responsibilities.map((responsibility, i) => {
+                    if (i === responsibilityIndex) {
+                        responsibility = e.target.value;
+                    }
+                    return responsibility;
+                })}
+            } 
+            return input;
+        })
     }
 }

@@ -25,7 +25,7 @@ export function Form({ form, handleInputChange, handleUpdateFieldsets, handleUpd
                                             key={inputIndex} 
                                             label={input.label}
                                             form={form}
-                                            fieldsetIndex={fieldsetIndex}
+                                            fieldset={fieldset}
                                             inputIndex={inputIndex}
                                             handleInputChange={handleInputChange}
                                             value={input.value}
@@ -37,7 +37,8 @@ export function Form({ form, handleInputChange, handleUpdateFieldsets, handleUpd
                                             fieldset={fieldset}
                                             input={input}
                                             inputIndex={inputIndex}
-                                            handleTextAreaChange={handleTextAreaChange}
+                                            // handleTextAreaChange={handleTextAreaChange}
+                                            handleInputChange={handleInputChange}
                                             handleUpdateResponsibilities={handleUpdateResponsibilities}
                                             // handleAddResponsibility={handleAddResponsibility}
                                             // handleDeleteResponsibility={handleDeleteResponsibility}
