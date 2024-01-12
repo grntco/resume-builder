@@ -23,12 +23,10 @@ export function Form({ form, handleUpdateForm }) {
                                     if (input.label !== "Responsibilities") {
                                         return <TextInput
                                             key={j} 
-                                            label={input.label}
                                             form={form}
                                             fieldset={fieldset}
-                                            inputIndex={j}
+                                            input={input}
                                             handleUpdateForm={handleUpdateForm}
-                                            value={input.value}
                                         />
                                     }
                                     return <ResponsibilitiesContainer
@@ -36,7 +34,6 @@ export function Form({ form, handleUpdateForm }) {
                                         form={form}
                                         fieldset={fieldset}
                                         input={input}
-                                        inputIndex={j}
                                         handleUpdateForm={handleUpdateForm}
                                     />
                                 })}
@@ -78,17 +75,19 @@ export function Form({ form, handleUpdateForm }) {
                 }
                 return { ...input, value: "" }
             });
-    
-        return {
-            ...form,
-            fieldsets: [...form.fieldsets, emptyFieldset]
-        }
+        const newFieldsets = [...form.fieldsets, emptyFieldset]
+        return updateFieldsets(newFieldsets)
     }
 
     function deleteFieldset(form) {
+        const newFieldsets = [...form.fieldsets.slice(0, form.fieldsets.length - 1)]
+        return updateFieldsets(newFieldsets)
+    }
+
+    function updateFieldsets(newFieldsets) {
         return {
             ...form,
-            fieldsets: [...form.fieldsets.slice(0, form.fieldsets.length - 1)],
+            fieldsets: newFieldsets,
         }
     }
 }

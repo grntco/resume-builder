@@ -1,18 +1,16 @@
 import { useState } from "react";
 
-export function ResponsibilitiesContainer({form, fieldset, input, inputIndex, handleUpdateForm }) {
+export function ResponsibilitiesContainer({form, fieldset, input, handleUpdateForm }) {
     const [ receivedInput, setReceivedInput ] = useState(false)
 
     return (
-        <li key={inputIndex} className="input-item textarea-item">
+        <li className="input-item textarea-item">
             <label htmlFor="" className="input-label">{input.label}</label>    
             {
                 input.responsibilities.map((responsibility, i) => {
                     return (
                         <textarea
                             key={i}
-                            name=""
-                            id=""
                             className="textarea"
                             onChange={(e) => { handleUpdateForm(e, form, updateTextAreaText, fieldset, i,); setReceivedInput(true) }}
                             placeholder={responsibility}
@@ -59,18 +57,15 @@ export function ResponsibilitiesContainer({form, fieldset, input, inputIndex, ha
         };
     }
 
-    // ______________________
-
-
-
     function addResponsibility(form, currentFieldset) {
+        const newResponsibilities =  [...input.responsibilities, ""]
         return {
             ...form,
             fieldsets: form.fieldsets.map(fieldset => {
                 if (fieldset === currentFieldset) {
                     return fieldset.map(input => {
                         if (input.label === "Responsibilities") {
-                            return {...input, responsibilities: [...input.responsibilities, ""] }
+                            return updateResponsibilities(newResponsibilities)
                         }
                         return input;
                     })
@@ -81,19 +76,27 @@ export function ResponsibilitiesContainer({form, fieldset, input, inputIndex, ha
     }
 
     function deleteResponsibility(form, currentFieldset) {
+        const newResponsibilities = [...input.responsibilities.slice(0, input.responsibilities.length - 1)];
         return {
             ...form,
             fieldsets: form.fieldsets.map(fieldset => {
                 if (fieldset === currentFieldset) {
                     return fieldset.map(input => {
                         if (input.label === "Responsibilities") {
-                            return {...input, responsibilities: [...input.responsibilities.slice(0, input.responsibilities.length - 1)] }
+                            return updateResponsibilities(newResponsibilities)
                         }
                         return input;
                     })
                 }
                 return fieldset;
             })
+        }
+    }
+
+    function updateResponsibilities(newResponsibilities) {
+        return {
+            ...input, 
+            responsibilities: newResponsibilities,
         }
     }
 }

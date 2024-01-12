@@ -1,20 +1,21 @@
 import '../../styles/Form.css'
 import { useState } from 'react'
 
-export function TextInput({ label, form, fieldset, inputIndex, value, handleUpdateForm }) {
-    const id = `${form.title}-${label}-${form.fieldsets.indexOf(fieldset)}-${inputIndex}`
+export function TextInput({ form, fieldset, input, handleUpdateForm }) {
     const [ receivedInput, setReceivedInput ] = useState(false)
+    const inputIndex = fieldset.indexOf(input);
+    const id = `${form.title}-${input.label}-${form.fieldsets.indexOf(fieldset)}-${inputIndex}`
 
     return (
         <li className="input-item">
-            { (label !== "Skill") && (
-                <label htmlFor={id} className="input-label">{label}</label>
+            { (input.label !== "Skill") && (
+                <label htmlFor={id} className="input-label">{input.label}</label>
             )}
             <input 
                 id={id}
                 className="input"
-                placeholder={value}
-                value={receivedInput ? value : ""}
+                placeholder={input.value}
+                value={receivedInput ? input.value : ""}
                 onChange={(e) => { handleUpdateForm(e, form, updateInputText, fieldset, inputIndex); setReceivedInput(true) } } 
             />
         </li>
@@ -25,7 +26,6 @@ export function TextInput({ label, form, fieldset, inputIndex, value, handleUpda
             ...form,
             fieldsets: form.fieldsets.map(fieldset => {
                 if (fieldset === currentFieldset) {
-                    // return updateFunc(e, fieldset, inputIndex)
                     return [
                         ...fieldset.slice(0, inputIndex),
                         {
