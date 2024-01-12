@@ -4,7 +4,7 @@ import { TextInput } from './TextInput';
 import { ResponsibilitiesContainer } from './ResponsibilitiesContainer';
 import { useState } from 'react';
 
-export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteFieldset, handleAddResponsibility, handleDeleteResponsibility, handleTextAreaChange }) {
+export function Form({ form, handleInputChange, handleUpdateFieldsets, handleUpdateResponsibilities, handleTextAreaChange }) {
     const [isCollapsed, setIsCollapsed] = useState(form.title !== 'Personal Details');
 
     return(
@@ -38,8 +38,9 @@ export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteF
                                             input={input}
                                             inputIndex={inputIndex}
                                             handleTextAreaChange={handleTextAreaChange}
-                                            handleAddResponsibility={handleAddResponsibility}
-                                            handleDeleteResponsibility={handleDeleteResponsibility}
+                                            handleUpdateResponsibilities={handleUpdateResponsibilities}
+                                            // handleAddResponsibility={handleAddResponsibility}
+                                            // handleDeleteResponsibility={handleDeleteResponsibility}
                                         />
                                     }
                                 })}
@@ -51,7 +52,7 @@ export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteF
             {
                 (!isCollapsed && form.fieldsetLimit > 1) && (
                     <button className='default-btn add-btn'
-                        onClick={(e) => handleAddFieldset(e, form)}
+                        onClick={(e) => handleUpdateFieldsets(e, form, addFieldset)}
                         disabled={form.fieldsets.length >= form.fieldsetLimit}
                     >Add {form.buttonText} (max: {form.fieldsetLimit})</button>
                 )
@@ -59,7 +60,7 @@ export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteF
             {
                 (!isCollapsed && form.fieldsets.length > 1) && (
                     <button className='default-btn delete-btn'
-                    onClick={(e) => handleDeleteFieldset(e, form)}
+                    onClick={(e) => handleUpdateFieldsets(e, form, deleteFieldset)}
                     >Delete {form.buttonText}</button>
                 )
             }
@@ -69,5 +70,29 @@ export function Form({ form, handleInputChange, handleAddFieldset, handleDeleteF
     function handleToggle(e) {
         e.preventDefault();
         setIsCollapsed(!isCollapsed);
+    }
+
+    function addFieldset(form) {
+        const emptyFieldset = form.fieldsets
+            .slice(0, 1)
+            .flat()
+            .map(input => {
+                if (input.label === "Responsibilities") {
+                    return {...input, responsibilities: [""]}
+                }
+                return { ...input, value: "" }
+            });
+    
+        return {
+            ...form,
+            fieldsets: [...form.fieldsets, emptyFieldset]
+        }
+    }
+
+    function deleteFieldset(form) {
+        return {
+            ...form,
+            fieldsets: [...form.fieldsets.slice(0, form.fieldsets.length - 1)],
+        }
     }
 }

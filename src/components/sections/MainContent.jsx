@@ -19,12 +19,9 @@ export function MainContent() {
                                 data={updatedData} 
                                 formIndex={formIndex}
                                 form={form}
-                                // handlers={handlers}
                                 handleInputChange={handleInputChange}
-                                handleAddFieldset={handleAddFieldset}
-                                handleDeleteFieldset={handleDeleteFieldset}
-                                handleAddResponsibility={handleAddResponsibility}
-                                handleDeleteResponsibility={handleDeleteResponsibility}
+                                handleUpdateFieldsets={handleUpdateFieldsets}
+                                handleUpdateResponsibilities={handleUpdateResponsibilities}
                                 handleTextAreaChange={handleTextAreaChange}
                             ></Form>
                         </Card>
@@ -65,89 +62,24 @@ export function MainContent() {
         })
     }
 
-    function handleAddFieldset(e, currentForm) {
+    function handleUpdateFieldsets(e, currentForm, updateFunc) {
         e.preventDefault();
         setUpdatedData((prevData) => {
             return prevData.map(form => {
                 if (form === currentForm) {
-                    const blankFieldset = form.fieldsets
-                        .slice(0, 1)
-                        .flat()
-                        .map(input => {
-                            if (input.label === "Responsibilities") {
-                                return {...input, responsibilities: [""]}
-                            }
-                            return { ...input, value: "" }
-                        });
-                    return {
-                        ...form,
-                        fieldsets: [...form.fieldsets, blankFieldset]
-                    }
-                }
-                return form;
-            })
-        })
-    }
-        
-    function handleDeleteFieldset(e, currentForm) {
-        e.preventDefault();
-        setUpdatedData((prevData) => {
-            return prevData.map(form => {
-                if (form === currentForm) {
-                    return {
-                        ...form,
-                        fieldsets: [...form.fieldsets.slice(0, form.fieldsets.length - 1)],
-                    }
+                    return updateFunc(form);
                 }
                 return form;
             })
         })
     }
 
-    function handleAddResponsibility(e, currentForm, currentFieldset) {
+    function handleUpdateResponsibilities(e, currentForm, currentFieldset, updateFunc) {
         e.preventDefault();
         setUpdatedData((prevData) => {
             return prevData.map(form => {
                 if (form === currentForm) {
-                    return {
-                        ...form,
-                        fieldsets: form.fieldsets.map(fieldset => {
-                            if (fieldset === currentFieldset) {
-                                return fieldset.map(input => {
-                                    if (input.label === "Responsibilities") {
-                                        return {...input, responsibilities: [...input.responsibilities, ""] }
-                                    }
-                                    return input;
-                                })
-                            }
-                            return fieldset;
-                        })
-                    }
-                }
-                return form;
-            })
-        })
-    }
-
-    function handleDeleteResponsibility(e, currentForm, currentFieldset) {
-        e.preventDefault();
-        setUpdatedData((prevData) => {
-            return prevData.map(form => {
-                if (form === currentForm) {
-                    return {
-                        ...form,
-                        fieldsets: form.fieldsets.map(fieldset => {
-                            if (fieldset === currentFieldset) {
-                                return fieldset.map(input => {
-                                    if (input.label === "Responsibilities") {
-                                        return {...input, responsibilities: [...input.responsibilities.slice(0, input.responsibilities.length - 1)] }
-                                    }
-                                    return input;
-                                })
-                            }
-                            return fieldset;
-                        })
-                    }
+                   return updateFunc(form, currentFieldset)
                 }
                 return form;
             })

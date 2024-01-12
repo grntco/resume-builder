@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function ResponsibilitiesContainer({form, fieldset, input, inputIndex, handleTextAreaChange, handleAddResponsibility, handleDeleteResponsibility}) {
+export function ResponsibilitiesContainer({form, fieldset, input, inputIndex, handleTextAreaChange, handleUpdateResponsibilities}) {
     const [ receivedInput, setReceivedInput ] = useState(false)
 
     return (
@@ -23,16 +23,50 @@ export function ResponsibilitiesContainer({form, fieldset, input, inputIndex, ha
             }
             <button 
                 className="default-btn add-btn"
-                onClick={(e) => handleAddResponsibility(e, form, fieldset)}
+                onClick={(e) => handleUpdateResponsibilities(e, form, fieldset, addResponsibility)}
                 disabled={input.responsibilities.length >= input.responsibilitiesLimit}
             >Add Responsibilities (max: {input.responsibilitiesLimit})</button>
             {
                 (input.responsibilities.length > 1) && (
                     <button
                         className="default-btn delete-btn"
-                        onClick={(e) => handleDeleteResponsibility(e, form ,fieldset)}>Delete Responsibilities</button>
+                        onClick={(e) => handleUpdateResponsibilities(e, form, fieldset, deleteResponsibility)}>Delete Responsibilities</button>
                 )
             }
         </li>
     )
+
+    function addResponsibility(form, currentFieldset) {
+        return {
+            ...form,
+            fieldsets: form.fieldsets.map(fieldset => {
+                if (fieldset === currentFieldset) {
+                    return fieldset.map(input => {
+                        if (input.label === "Responsibilities") {
+                            return {...input, responsibilities: [...input.responsibilities, ""] }
+                        }
+                        return input;
+                    })
+                }
+                return fieldset;
+            })
+        }
+    }
+
+    function deleteResponsibility(form, currentFieldset) {
+        return {
+            ...form,
+            fieldsets: form.fieldsets.map(fieldset => {
+                if (fieldset === currentFieldset) {
+                    return fieldset.map(input => {
+                        if (input.label === "Responsibilities") {
+                            return {...input, responsibilities: [...input.responsibilities.slice(0, input.responsibilities.length - 1)] }
+                        }
+                        return input;
+                    })
+                }
+                return fieldset;
+            })
+        }
+    }
 }
